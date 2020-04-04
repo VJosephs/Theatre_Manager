@@ -4,11 +4,31 @@ public class Seat {
     private String type;
 
     public Seat(String type) {
+        setType(type);
 
     }
 
     private void setType(String type) {
-        //TODO add method body
+        if(type.equalsIgnoreCase("taken")) {
+            valid = false;
+            seatChar = 'X';
+        }
+        else if(type.equalsIgnoreCase("available")) {
+            valid = true;
+            seatChar = 'O';
+        }
+        else if(type.equalsIgnoreCase("handicap")) {
+            valid = true;
+            seatChar = '\u267f';
+        }
+        else if(type.equalsIgnoreCase("blank")) {
+            valid = false;
+            seatChar = ' ';
+        }
+        else {
+            valid = false;
+            seatChar = '\u1234';
+        }
     }
 
     public char getSeatChar() {
@@ -17,6 +37,10 @@ public class Seat {
 
     public boolean isValid() {
         return valid;
+    }
+
+    public void setInValid() {
+        this.valid = false;
     }
 
     public String getType() {
