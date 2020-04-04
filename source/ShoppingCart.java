@@ -1,9 +1,7 @@
-
-
 import java.util.ArrayList;
 
 public class ShoppingCart {
-	public ArrayList<Ticket> cart= new ArrayList<>();
+	public ArrayList<Ticket> cart;
 	
 	ShoppingCart(ArrayList<Ticket> cart){
 		this.cart = cart;
@@ -14,7 +12,7 @@ public class ShoppingCart {
 	}
 	
 	public void removeTicket(Ticket ticket) {
-		cart.remove(cart.indexOf(ticket));
+		cart.remove(ticket);
 	}
 	
 	public void printTickets() {

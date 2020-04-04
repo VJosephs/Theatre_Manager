@@ -1,5 +1,3 @@
-
-
 public class Seat {
     private char seatChar;
     private boolean valid;
