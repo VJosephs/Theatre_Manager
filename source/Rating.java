@@ -16,7 +16,18 @@ public class Rating {
     }
 
     private void setRating(double rating) {
-        // TODO make sure rating is in valid range
+        if(rating == 1 || rating == 1.5 || rating == 2 || rating == 2.5 || rating == 3 || rating == 3.5 || rating == 4 || rating == 4.5 || rating == 5) {
+            this.rating = rating;
+        }
+        else if(rating < 1) {
+            this.rating = 1;
+        }
+        else if(rating > 5) {
+            this.rating = 5;
+        }
+        else {
+            this.rating = Math.round(rating);
+        }
     }
 
     public String getUserName() {
@@ -32,7 +43,6 @@ public class Rating {
     }
 
     public String toString() {
-        // TODO add method body
-        return null;
+        return userName+ "gave this show a rating of:" + rating + " and said, " + comment;
     }
 }
