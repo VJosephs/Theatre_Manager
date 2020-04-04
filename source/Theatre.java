@@ -3,21 +3,14 @@
 import java.util.ArrayList;
 
 public class Theatre {
-<<<<<<< HEAD
 
-	private String name;
-	private String address;
-	private Layout layout;
-	private ArrayList ratings;
-	private ArrayList shows;
-=======
 private String name;
 private String address;
 private Layout layout;
 private double avgRating;
 private ArrayList<Rating> ratings= new ArrayList<>();
 private ArrayList<Show> shows= new ArrayList<>();
->>>>>>> 20913ab7c4c52ea0bbe89e22cd33ecd8981da9f9
+
 
 	public Theatre(String name, String address, Layout layout, ArrayList<Rating> ratings,
 			ArrayList<Show> shows) {
