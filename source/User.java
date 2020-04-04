@@ -1,5 +1,6 @@
-import java.util.Date;
 package source;
+
+import java.util.Date;
 import java.util.ArrayList; 
 public class User {
 	
@@ -10,7 +11,7 @@ public class User {
 	private String paymentInfo;
 	private String password;
 	private int RewardPoints;
-	private ArrayList<Ticket> pastTransactions = new ArrayList<Ticket>();
+	private ArrayList<Ticket> pastTransactions = new ArrayList<>();
 	
 	public User(String firstName, String lastName, Date birthday, String password) { 
 		this.firstName = firstName;
@@ -19,24 +20,25 @@ public class User {
 		this.password = password;
 	}
 	
-	public purchaseTicket(String name, String address, Date showTime, String paymentInfo) {
-		// fill out later
+	public void purchaseTicket(String name, String address, Date showTime, String paymentInfo) {
+		// TODO fill out later
 	
 	}
 	
-	public giveRating(double rating, String comment) {
-		// fill out later
+	public void giveRating(double rating, String comment) {
+		// TODO fill out later
 	}
 	
 	public ShoppingCart getCurrentCart() {
-		// fill out later
+		// TODO fill out later
+		return null;
 	}
 	
-	public setPaymentInfo() {
-		// fill out later
+	public void setPaymentInfo() {
+		// TODO fill out later
 	}
 	
-	public completePurchase(ShoppingCart cart) {
-		// fill out later
+	public void completePurchase(ShoppingCart cart) {
+		// TODO fill out later
 	}
 }

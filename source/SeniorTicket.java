@@ -3,7 +3,7 @@ package source;
 
 public class SeniorTicket extends Ticket {
 
-	public SeniorTicket() {
-		super();
+	public SeniorTicket(Show show, Theatre theatre) {
+		super(show, theatre);
 	}
 }

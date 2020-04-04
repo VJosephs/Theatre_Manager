@@ -15,7 +15,7 @@ public class Ticket {
 	// Create ticket object
 	public Ticket(Show show, Theatre theatre) {
 		this.show = show;
-		this.theatre = theatre;
+		this.price = show.getPrice();
 	}
 	
 	public Show getShow() {
@@ -27,11 +27,13 @@ public class Ticket {
 	}
 	
 	public Theatre getTheatre() {
-		return this.getTheatre();
+		//TODO fix this
+		return null;
 	}
 	
 	public String toString() {
-		// do this later 
+		// TODO do this later
+		return null;
 	}
 
 }
