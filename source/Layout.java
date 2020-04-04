@@ -21,7 +21,7 @@ public class Layout {
                 else if(j == 0) 
                     System.out.print(i + " ");
                 else
-                    System.out.print(seats[i-1][j-1] + " ");
+                    System.out.print(seats[i-1][j-1].getType() + " ");
             }
             System.out.println();
         }
