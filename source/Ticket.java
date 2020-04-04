@@ -30,7 +30,7 @@ public class Ticket {
 	}
 	
 	public String toString() {
-		// TODO do this later
+		String ticket = "Admission to " + show.getName() + " at " + show.getShowTime();
 		return null;
 	}
 

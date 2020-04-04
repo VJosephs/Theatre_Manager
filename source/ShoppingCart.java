@@ -16,7 +16,10 @@ public class ShoppingCart {
 	}
 	
 	public void printTickets() {
-		
+		// For each ticket in the cart, print out the ticket
+		for(Ticket ticket : cart) {
+			ticket.toString();
+		}
 	}
 	
 	public void addRewardPoints() {

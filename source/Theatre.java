@@ -11,7 +11,7 @@ private ArrayList<Rating> ratings= new ArrayList<>();
 private ArrayList<Show> shows= new ArrayList<>();
 
 public Theatre(String name, String address, Layout layout, double avgRating, ArrayList<Rating> ratings,
-		ArrayList<Show> shows) {
+	ArrayList<Show> shows) {
 	super();
 	this.name = name;
 	this.address = address;
@@ -44,6 +44,10 @@ public double getAvgRating() {
 }
 public void setAvgRating(double avgRating) {
 	this.avgRating = avgRating;
+}
+
+	public void addRating(Rating rating) {
+		ratings.add(rating);
 }
 
 
