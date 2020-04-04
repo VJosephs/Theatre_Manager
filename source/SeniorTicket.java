@@ -3,7 +3,7 @@
 
 public class SeniorTicket extends Ticket {
 
-	public SeniorTicket(Show show, Theatre theatre) {
-		super(show, theatre);
+	public SeniorTicket(Show show) {
+		super(show);
 	}
 }

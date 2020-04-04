@@ -12,7 +12,7 @@ public class Ticket {
 	private double price;
 	
 	// Create ticket object
-	public Ticket(Show show, Theatre theatre) {
+	public Ticket(Show show) {
 		this.show = show;
 		this.price = show.getPrice();
 	}
@@ -26,8 +26,7 @@ public class Ticket {
 	}
 	
 	public Theatre getTheatre() {
-		//TODO fix this
-		return null;
+		return show.getLocation();
 	}
 	
 	public String toString() {

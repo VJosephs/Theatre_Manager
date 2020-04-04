@@ -3,8 +3,8 @@
 
 public class ChildTicket extends Ticket {
 
-	public ChildTicket(Show show, Theatre theatre) {
-		super(show, theatre);
+	public ChildTicket(Show show) {
+		super(show);
 	}
 
 }
