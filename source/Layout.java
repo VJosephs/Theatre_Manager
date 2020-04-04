@@ -14,7 +14,7 @@ public class Layout {
     	for (int i = 0; i < seats.length; i++)
 		{
 			for (int j = 0; (seats[i] != null && j < seats[i].length); j++)
-				System.out.print(seats[i][j] + " ");
+				System.out.print(seats[i][j].getType() + " ");
 
 			System.out.println();
 		}
