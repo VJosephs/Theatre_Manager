@@ -1,4 +1,4 @@
-package source;
+
 
 public class Layout {
     public String name;

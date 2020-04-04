@@ -1,4 +1,4 @@
-package source;
+
 import java.util.Scanner;
 
 public class JSONReader {

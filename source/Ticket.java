@@ -1,11 +1,10 @@
 // Written by Vincent Josephs
 
-package source;
+
 
 /*
  * This class creates the ticket object, which should display the 
- * show the ticket is for and the price of admission. The ticket 
- * should also 
+ * show the ticket is for and the price of admission. 
  */
 
 public class Ticket {

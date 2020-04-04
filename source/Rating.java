@@ -1,4 +1,4 @@
-package source;
+
 
 public class Rating {
     private String userName;
