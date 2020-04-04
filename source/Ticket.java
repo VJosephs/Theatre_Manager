@@ -30,8 +30,7 @@ public class Ticket {
 	}
 	
 	public String toString() {
-		String ticket = "Admission to " + show.getName() + " at " + show.getShowTime();
-		return ticket;
+		return 		"Admission to " + show.getName() + " at " + show.getShowTime();
 	}
 
 }
