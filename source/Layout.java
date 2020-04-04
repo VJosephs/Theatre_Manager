@@ -27,8 +27,9 @@ public class Layout {
         }
 
     }
-    public void makeLayout() {
+    public void makeLayout(int width, int height) {
         //TODO add method body
+    	seats = new Seat[height][width];
     }
 
     public String getName() {
