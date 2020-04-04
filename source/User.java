@@ -12,8 +12,8 @@ public class User {
 	private String password;
 	private int RewardPoints;
 	private ArrayList<Ticket> pastTransactions = new ArrayList<>();
-	
-	public User(String firstName, String lastName, Date birthday, String password) { 
+
+	public User(String firstName, String lastName, String username, Date birthday, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthday = birthday;
