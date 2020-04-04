@@ -4,12 +4,20 @@ public class Layout {
     public String name;
     public Seat[][] seats;
 
-    public Layout() {
+    public Layout(String name, Seat[][] seats) {
         //TODO add method body
+    	this.name = name;
+    	this.seats = seats;
     }
 
     public void printLayout() {
-        //TODO add method body
+    	for (int i = 0; i < seats.length; i++)
+		{
+			for (int j = 0; (seats[i] != null && j < seats[i].length); j++)
+				System.out.print(seats[i][j] + " ");
+
+			System.out.println();
+		}
     }
     public void makeLayout() {
         //TODO add method body
@@ -22,4 +30,4 @@ public class Layout {
     public void setName(String name) {
         this.name = name;
     }
-}
+}	
