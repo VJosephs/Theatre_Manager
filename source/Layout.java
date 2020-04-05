@@ -7,9 +7,12 @@ public class Layout {
     private String currentSeatType;
 
     public Layout(String name, Seat[][] seats) {
-        //TODO add method body
         this.name = name;
         this.seats = seats;
+    }
+
+    public Layout(String name) {
+        this.name = name;
     }
 
     public void printLayout() {
