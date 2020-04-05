@@ -10,6 +10,8 @@ public class User {
 	private String password;
 	private int RewardPoints;
 	private ArrayList<Ticket> pastTransactions = new ArrayList<>();
+	private ArrayList<Ticket> currentTransactions = new ArrayList<>();
+	private ShoppingCart cart = new ShoppingCart(currentTransactions);
 
 	public User(String firstName, String lastName, String username, Date birthday, String password) {
 		this.firstName = firstName;
@@ -28,15 +30,14 @@ public class User {
 	}
 	
 	public ShoppingCart getCurrentCart() {
-		// TODO fill out later
-		return null;
+		return cart;
 	}
 	
 	public void setPaymentInfo() {
 		// TODO fill out later
 	}
 	
-	public void completePurchase(ShoppingCart cart) {
+	public void completePurchase() {
 		// TODO fill out later
 	}
 }
