@@ -8,7 +8,7 @@ public class Seat {
 
     }
 
-    private void setType(String type) {
+    public void setType(String type) {
         if(type.equalsIgnoreCase("taken")) {
             valid = false;
             seatChar = 'X';
