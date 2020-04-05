@@ -20,9 +20,10 @@ public class User {
 		this.password = password;
 	}
 	
-	public void purchaseTicket(String name, String address, Date showTime, String paymentInfo) {
-		// TODO fill out later
-	
+	public void purchaseTicket(Show show, String paymentInfo) {
+		Ticket ticket = new Ticket(show);
+		cart.addTicket(ticket);
+		//TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
 	}
 	
 	public void giveRating(double rating, String comment) {
