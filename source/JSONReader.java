@@ -7,11 +7,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONReader extends JSONConstants {
-
-    public String CONFIG_USERS;
-    public String CONFIG_THEATRES;
-    public final String FILE_NAME = "config/config.json";
-
     private ArrayList<User> users;
     private ArrayList<Theatre> theatres;
 
@@ -28,10 +23,29 @@ public class JSONReader extends JSONConstants {
 
     private void writeJSON() {
         JSONArray jsonTheatres = new JSONArray();
+        JSONArray jsonUsers = new JSONArray();
         for (Theatre theatre : theatres) {
-            jsonTheatres.put(theatre);
+            jsonTheatres.put(getTheatreJSON(theatre));
         }
+        for (User user : users) {
+            jsonUsers.put(getUserJSON(user));
+        }
+        writeFile(jsonTheatres, CONFIG_THEATRES);
+        writeFile(jsonUsers, CONFIG_USERS);
+    }
 
+    private JSONObject getUserJSON(User user) {
+        JSONObject userJSON = new JSONObject();
+        userJSON.put(USER_BIRTHDAY, user.getBirthdayString());
+        userJSON.put(USER_FIRST_NAME, user.getFirstName());
+        userJSON.put(USER_LAST_NAME, user.getLastName());
+        userJSON.put(USER_USERNAME, user.getUsername());
+        userJSON.put(USER_PASSWORD, user.getPassword());
+        userJSON.put(USER_REWARDS_POINTS, user.getRewardpoints());
+        userJSON.put(USER_CURRENT_TRANSACTIONS, getTicketArray(user.getCurrentTransactions()));
+        userJSON.put(USER_PAST_TRANSACTIONS, getTicketArray(user.getPastTransactions()));
+        userJSON.put(USER_SHOPPING_CART, getTicketArray(user.getCart().getCart()));
+        return userJSON;
     }
 
     private JSONObject getTheatreJSON(Theatre theatre) {
@@ -59,7 +73,7 @@ public class JSONReader extends JSONConstants {
         showJSON.put(SHOW_DESCRIPTION, show.getDescription());
         showJSON.put(SHOW_GENRE, show.getGenre());
         showJSON.put(SHOW_LOCATION, show.getLocation());
-        showJSON.put(SHOW_SHOW_TIME, show.getShowTime());
+        showJSON.put(SHOW_SHOW_TIME, getDateJSON(show.getShowTime()));
         showJSON.put(SHOW_PRICE, show.getPrice());
         showJSON.put(SHOW_NAME, show.getName());
         showJSON.put(SHOW_CAST, getStringArrayJSON(show.getCast()));
@@ -94,7 +108,8 @@ public class JSONReader extends JSONConstants {
 
     private JSONObject getDateJSON(Date date) {
         JSONObject dateJSON = new JSONObject();
-        //TODO do this later dateJSON.put("")
+        String dateString = "" + date.getMonth() + "-" + date.getDate() + "-" + date.getYear();
+        dateJSON.put(DATE_STRING, dateString);
         return dateJSON;
     }
 
@@ -142,6 +157,14 @@ public class JSONReader extends JSONConstants {
         JSONObject seatJSON = new JSONObject();
         seatJSON.put(SEAT_TYPE, seat.getType());
         return seatJSON;
+    }
 
+    public static void writeFile(JSONArray fileContentsJSON, String fileName) {
+        try (FileWriter file = new FileWriter(GENERAL_FILE_PATH + fileName)) {
+            file.write(fileContentsJSON.toString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

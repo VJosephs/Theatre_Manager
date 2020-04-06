@@ -30,5 +30,7 @@ public class ShoppingCart {
         return true;
     }
 
-
+    public ArrayList<Ticket> getCart() {
+        return cart;
+    }
 }

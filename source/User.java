@@ -123,4 +123,32 @@ public class User {
         addRewardPoints(funds);
         pastTransactions.remove(ind);
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getRewardPoints() {
+        return RewardPoints;
+    }
+
+    public ArrayList<Ticket> getPastTransactions() {
+        return pastTransactions;
+    }
+
+    public ArrayList<Ticket> getCurrentTransactions() {
+        return currentTransactions;
+    }
+
+    public ShoppingCart getCart() {
+        return cart;
+    }
+
+    public String getBirthdayString() {
+        return "" + birthday.getMonth() + "-" + birthday.getDate() + "-" + birthday.getYear();
+    }
 }
