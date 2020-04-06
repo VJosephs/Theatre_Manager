@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Scanner;
 
 public class Layout {
@@ -5,6 +6,8 @@ public class Layout {
     public Seat[][] seats;
 
     private String currentSeatType;
+    private int HEIGHT;
+    private int WIDTH;
 
     public Layout(String name, Seat[][] seats) {
         this.name = name;
@@ -16,21 +19,17 @@ public class Layout {
     }
 
     public void printLayout() {
-
         for (int i = 0; i < seats.length + 1; ++i) {
-            for (int j = 0; j < seats[0].length + 1; ++j) {
-                if (i == 0 && j == 0)
-                    System.out.print("  ");
-                else if (i == 0)
-                    System.out.print((char) ((j - 1) + 65) + " ");
-                else if (j == 0)
-                    System.out.print(i - 1 + " ");
+            for (int j = 0; j < seats[0].length; ++j) {
+                if (i == 0)
+                    System.out.print((char) (j + 65) + " ");
                 else
-                    System.out.print(seats[i - 1][j - 1].getType() + " ");
+                    System.out.print(seats[i - 1][j].getSeatChar() + " ");
             }
+            if (i != 0)
+                System.out.print("| " + (i - 1));
             System.out.println();
         }
-
     }
 
     public void makeLayout() {
@@ -48,19 +47,17 @@ public class Layout {
 
         String type = "";
         System.out.println("Please choose what the seats will be set to type \"quit\" to finish");
-        while(!type.equalsIgnoreCase("quit")) {
+        while (!type.equalsIgnoreCase("quit")) {
             System.out.println("Enter two points followed by a type ex( A1 B4 available)\n: ");
             type = input.nextLine();
-            if(stringValid(type)) {
-                String[] brokenString =  chopString(type);
+            if (stringValid(type)) {
+                String[] brokenString = chopString(type);
                 setSeatType(brokenString);
                 setSeats(getDim(getPoints(brokenString)));
-            }
-            else if (!type.equalsIgnoreCase("quit")){
+            } else if (!type.equalsIgnoreCase("quit")) {
                 System.out.println("The line \"" + type + "\" seems to be invalid please try again");
             }
         }
-
 
 
         input.close();
@@ -81,7 +78,9 @@ public class Layout {
     }
 
     private void initSeats(int width, int height) {
-        seats = new Seat[height][width];
+        WIDTH = width;
+        HEIGHT = height;
+        seats = new Seat[WIDTH][HEIGHT];
         for (Seat[] seat : seats) {
             for (int j = 0; j < seats[0].length; ++j) {
                 seat[j].setType("blank");
@@ -109,6 +108,15 @@ public class Layout {
         int c = (arr[1].charAt(0)) - 65;
         justTheNums = arr[1].replaceAll("[A-Za-z]", "");
         int d = Integer.parseInt(justTheNums);
+
+        if (a > WIDTH)
+            a = WIDTH;
+        if (b > HEIGHT)
+            b = HEIGHT;
+        if (c > WIDTH)
+            c = WIDTH;
+        if (d > HEIGHT)
+            d = HEIGHT;
 
         return new int[]{a, b, c, d};
     }
