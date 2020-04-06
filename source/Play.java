@@ -9,7 +9,15 @@ public class Play extends Show {
     }
 
     public int getAgeRating() {
-        //TODO add method body
-        return 0;
+    	if(showRating.equals("18+"))
+        	return 18;
+    	else if(showRating.equals("16+"))
+    		return 16;
+    	else if(showRating.equals("13+"))
+    		return 13;
+    	else if(showRating.equals("10+"))
+    		return 10;
+        else
+        	return 0;
     }
 }

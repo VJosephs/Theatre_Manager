@@ -7,8 +7,10 @@ public class Concert extends Show {
     }
 
     public int getAgeRating() {
-        //TODO add method body
-        return 0;
+    	if(showRating.equals("18+"))
+        	return 18;
+        else
+        	return 0;
     }
 
 

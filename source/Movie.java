@@ -8,8 +8,12 @@ public class Movie extends Show {
     }
 
     public int getAgeRating() {
-        //TODO add method body
-        return 0;
+        if(showRating.equals("R"))
+        	return 17;
+        else if(showRating.equals("PG-13"))
+        	return 13;
+        else
+        	return 0;
     }
 
 }

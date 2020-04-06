@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Show {
 
-    private String name, genre, description, showRating;
+    protected String name, genre, description, showRating;
     private Date showTime;
     private double price, avgRating;
     private Theatre location;
