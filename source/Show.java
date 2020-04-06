@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Show {
+public class Show implements Comparable<Show>{
 
     protected String name, genre, description, ageRating;
     private Date showTime;
@@ -87,5 +87,10 @@ public class Show {
     public String toString() {
         //TODO write toString
     	return null;
+    }
+
+    @Override
+    public int compareTo(Show o) {
+        return Double.compare(this.getAvgRating(), o.getAvgRating());
     }
 }

@@ -73,7 +73,6 @@ public class Layout {
                 System.out.println("Invalid Value must be an integer above 0");
             }
         }
-
         return Val;
     }
 

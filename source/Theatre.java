@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class Theatre {
+public class Theatre implements Comparable<Theatre> {
 
 private String name;
 private String address;
@@ -86,5 +86,10 @@ private ArrayList<Show> shows= new ArrayList<>();
 		if(shows == null)
 			shows = new ArrayList<>();
 		this.shows = shows;
+	}
+
+	@Override
+	public int compareTo(Theatre o) {
+		return Double.compare(this.getAvgRating(), o.getAvgRating());
 	}
 }
