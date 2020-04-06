@@ -9,23 +9,19 @@ public class Seat {
     }
 
     public void setType(String type) {
-        if(type.equalsIgnoreCase("taken")) {
+        if (type.equalsIgnoreCase("taken")) {
             valid = false;
             seatChar = 'X';
-        }
-        else if(type.equalsIgnoreCase("available")) {
+        } else if (type.equalsIgnoreCase("available")) {
             valid = true;
             seatChar = 'O';
-        }
-        else if(type.equalsIgnoreCase("handicap")) {
+        } else if (type.equalsIgnoreCase("handicap")) {
             valid = true;
             seatChar = '\u267f';
-        }
-        else if(type.equalsIgnoreCase("blank")) {
+        } else if (type.equalsIgnoreCase("blank")) {
             valid = false;
             seatChar = ' ';
-        }
-        else {
+        } else {
             valid = false;
             seatChar = '\u1234';
         }

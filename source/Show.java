@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Show implements Comparable<Show>{
+public class Show implements Comparable<Show> {
 
     protected String name, genre, description, ageRating;
     private Date showTime;
@@ -13,13 +13,14 @@ public class Show implements Comparable<Show>{
 
     /**
      * Creates a new show
-     * @param name The name of the Show
+     *
+     * @param name        The name of the Show
      * @param description The description of the Show
-     * @param genre The genre of the Show
-     * @param ageRating The age rating of the show
-     * @param showTime The time that the show is being played
-     * @param location The theater that the show is at.
-     * @param price The amount a ticket for the show costs
+     * @param genre       The genre of the Show
+     * @param ageRating   The age rating of the show
+     * @param showTime    The time that the show is being played
+     * @param location    The theater that the show is at.
+     * @param price       The amount a ticket for the show costs
      */
     public Show(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
         this.name = name;
@@ -58,11 +59,12 @@ public class Show implements Comparable<Show>{
 
     /**
      * Averages together all of the ratings of a show
+     *
      * @return The average rating of the show
      */
     public double getAvgRating() {
         double sum = 0;
-        for(Rating r : ratings) {
+        for (Rating r : ratings) {
             sum += r.getRating();
         }
         return sum / ratings.size();
@@ -86,7 +88,7 @@ public class Show implements Comparable<Show>{
 
     public String toString() {
         //TODO write toString
-    	return null;
+        return null;
     }
 
     @Override

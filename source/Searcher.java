@@ -66,16 +66,13 @@ public class Searcher {
             if (type.equalsIgnoreCase("Movie")) {
                 if (show.getClass() == Movie.class)
                     retShows.add(show);
-            }
-            else if (type.equalsIgnoreCase("Play")) {
-                if(show.getClass() == Play.class)
+            } else if (type.equalsIgnoreCase("Play")) {
+                if (show.getClass() == Play.class)
                     retShows.add(show);
-            }
-            else if (type.equalsIgnoreCase("Concert")) {
+            } else if (type.equalsIgnoreCase("Concert")) {
                 if (show.getClass() == Concert.class)
                     retShows.add(show);
-            }
-            else {
+            } else {
                 return retShows;
             }
         }
