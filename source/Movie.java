@@ -1,5 +1,3 @@
-
-
 import java.util.Date;
 
 public class Movie extends Show {
@@ -25,12 +23,16 @@ public class Movie extends Show {
      * @return The minimum age required to see the movie
      */
     public int getAgeRating() {
-        if (ageRating.equals("R"))
-            return 17;
-        else if (ageRating.equals("PG-13"))
-            return 13;
-        else
-            return 0;
+        switch (ageRating) {
+            case "PG-13":
+                return 13;
+            case "R":
+                return 17;
+            case "NC-17":
+                return 18;
+            default:
+                return 0;
+        }
     }
 
 }
