@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class Show {
 
-    protected String name, genre, description, showRating;
+    protected String name, genre, description, ageRating;
     private Date showTime;
     private double price;
     private Theatre location;
@@ -11,13 +11,13 @@ public class Show {
     private ArrayList<Rating> ratings;
     private ArrayList<Ticket> purchasedTickets;
 
-    public Show(String name, String description, String genre, String showRating, Date showTime, Theatre location, double price) {
+    public Show(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
         this.name = name;
         this.description = description;
         this.showTime = showTime;
         this.location = location;
         this.price = price;
-        this.showRating = showRating;
+        this.ageRating = ageRating;
         this.genre = genre;
     }
 
@@ -35,7 +35,7 @@ public class Show {
     }
 
     public String getShowRating() {
-        return showRating;
+        return ageRating;
     }
 
     public Date getShowTime() {
