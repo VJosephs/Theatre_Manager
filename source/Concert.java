@@ -25,6 +25,8 @@ public class Concert extends Show {
     public int getAgeRating() {
         if (ageRating.equals("18+"))
             return 18;
+        else if (ageRating.equals("21+"))
+            return 21;
         else
             return 0;
     }
