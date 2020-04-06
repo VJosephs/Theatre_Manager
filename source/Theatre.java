@@ -92,20 +92,20 @@ public class Theatre implements Comparable<Theatre> {
     public int compareTo(Theatre o) {
         return Double.compare(this.getAvgRating(), o.getAvgRating());
     }
-    
+
     public void removeTheatreRating(Rating rating) {
-    	for(Rating rating1 : ratings) {
-    		if(rating1.equals(rating)) {
-    			ratings.remove(rating);
-    		}
-    	}
+        for (Rating rating1 : ratings) {
+            if (rating1.equals(rating)) {
+                ratings.remove(rating);
+            }
+        }
     }
-    
+
     public double getTicketSales() {
-    	double sales = 0;
-    	for(Show show: shows) {
-    		sales  += show.getTicketSale();
-    	}
-    	return sales;
+        double sales = 0;
+        for (Show show : shows) {
+            sales += show.getTicketSale();
+        }
+        return sales;
     }
 }

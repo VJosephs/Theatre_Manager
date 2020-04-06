@@ -9,31 +9,31 @@ public class Employee extends User {
     }
 
     public void refund(String username, ArrayList<User> users) {
-        for(User user: users) {
-        	if(user.getUsername() == username) {
-        		user.refundTicket();
-        	}
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                user.refundTicket();
+            }
         }
     }
 
     public void addShow(Show show) {
-    	location.addShow(show);
+        location.addShow(show);
     }
 
     public void viewTicketSales() {
-        location.getTicketSales();
-    	
+        System.out.println(location.getTicketSales());
+
     }
 
     public void removeTheatreRating(Rating rating) {
-    	location.removeRating(rating);
+        location.removeRating(rating);
     }
-    
+
     public void removeShowRating(Rating rating, Show show) {
-    	show.removeShowRating(rating);
+        show.removeShowRating(rating);
     }
 
     public void setTheatre(Theatre location) {
-    	this.location = location;
+        this.location = location;
     }
 }

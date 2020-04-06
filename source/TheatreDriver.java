@@ -226,19 +226,6 @@ public class TheatreDriver {
         return retDate;
     }
 
-    public static int takeIntVal(Scanner input) {
-        int Value = 0;
-        while (Value == 0) {
-            try {
-                System.out.println("Width: ");
-                Value = Integer.parseInt(input.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid Value must be an integer above 0");
-            }
-        }
-        return Value;
-    }
-
     public static boolean signIn(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
