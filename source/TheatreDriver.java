@@ -168,6 +168,7 @@ public class TheatreDriver {
     	System.out.println();
     	System.out.println("**     Logging you in.     **");
     	System.out.println();
+    	getSignedInUI();
     	return user;
     }
     
