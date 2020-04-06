@@ -6,7 +6,6 @@ public class User {
 	private String lastName;
 	private String username;
 	private Date birthday; 
-	private String paymentInfo;
 	private String password;
 	private int RewardPoints;
 	private ArrayList<Ticket> pastTransactions = new ArrayList<>();
@@ -20,7 +19,7 @@ public class User {
 		this.password = password;
 	}
 	
-	public void purchaseTicket(Show show, String paymentInfo) {
+	public void purchaseTicket(Show show) {
 		Ticket ticket = new Ticket(show);
 		cart.addTicket(ticket);
 		//TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
@@ -32,10 +31,6 @@ public class User {
 	
 	public ShoppingCart getCurrentCart() {
 		return cart;
-	}
-	
-	public void setPaymentInfo() {
-		// TODO fill out later
 	}
 	
 	public void completePurchase() {
