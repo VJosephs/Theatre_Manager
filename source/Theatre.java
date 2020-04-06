@@ -7,7 +7,6 @@ public class Theatre {
 private String name;
 private String address;
 private Layout layout;
-private double avgRating;
 private ArrayList<Rating> ratings= new ArrayList<>();
 private ArrayList<Show> shows= new ArrayList<>();
 

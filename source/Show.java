@@ -5,7 +5,7 @@ public class Show {
 
     protected String name, genre, description, showRating;
     private Date showTime;
-    private double price, avgRating;
+    private double price;
     private Theatre location;
     private ArrayList<String> cast;
     private ArrayList<Rating> ratings;
@@ -71,7 +71,7 @@ public class Show {
     }
 
     public String toString() {
-        //TODO add method body
-        return null;
+        //TODO write toString
+    	return null;
     }
 }
