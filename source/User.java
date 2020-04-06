@@ -2,52 +2,7 @@ import java.util.Date;
 import java.util.ArrayList;
 
 public class User {
-<<<<<<< HEAD
 
-    private String firstName;
-    private String lastName;
-    private String username;
-    private Date birthday;
-    private String password;
-    private int RewardPoints;
-    private ArrayList<Ticket> pastTransactions = new ArrayList<>();
-    private ArrayList<Ticket> currentTransactions = new ArrayList<>();
-    private ShoppingCart cart = new ShoppingCart(currentTransactions);
-
-    public User(String firstName, String lastName, String username, Date birthday, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.birthday = birthday;
-        this.password = password;
-    }
-
-    public void purchaseTicket(Show show) {
-        Ticket ticket = new Ticket(show);
-        cart.addTicket(ticket);
-        //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
-    }
-
-    public void giveRating(double rating, String comment) {
-        // TODO fill out later
-    }
-
-    public ShoppingCart getCurrentCart() {
-        return cart;
-    }
-
-    public void completePurchase() {
-        // TODO fill out later
-    }
-
-    @Override
-    public String toString() {
-        return "User [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", birthday="
-                + birthday + ", password=" + password + ", RewardPoints="
-                + RewardPoints + ", pastTransactions=" + pastTransactions + "]";
-    }
-
-=======
 	
 	private String firstName;
 	private String lastName;
@@ -95,7 +50,7 @@ public class User {
 				+ RewardPoints + ", pastTransactions=" + pastTransactions + "]";
 	}
 	
->>>>>>> vincent
+
 
     @Override
     public int hashCode() {
@@ -109,41 +64,7 @@ public class User {
         return result;
     }
 
-<<<<<<< HEAD
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        if (birthday == null) {
-            if (other.birthday != null)
-                return false;
-        } else if (!birthday.equals(other.birthday))
-            return false;
-        if (firstName == null) {
-            if (other.firstName != null)
-                return false;
-        } else if (!firstName.equals(other.firstName))
-            return false;
-        if (lastName == null) {
-            if (other.lastName != null)
-                return false;
-        } else if (!lastName.equals(other.lastName))
-            return false;
-        if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
-            return false;
-        if (username == null) {
-            return other.username == null;
-        } else return username.equals(other.username);
-    }
-=======
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -190,6 +111,5 @@ public class User {
 	public int getRewardpoints() {
 		return this.RewardPoints;
 	}
-	
->>>>>>> vincent
+
 }
