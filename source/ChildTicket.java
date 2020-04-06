@@ -7,8 +7,8 @@ public class ChildTicket extends Ticket {
      *
      * @param show The show that the ticket is for
      */
-    public ChildTicket(Show show) {
-        super(show);
+    public ChildTicket(String show, String location, double price) {
+        super(show, location, price);
     }
 
 }

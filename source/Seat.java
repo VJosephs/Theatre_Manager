@@ -25,6 +25,7 @@ public class Seat {
             valid = false;
             seatChar = '\u1234';
         }
+        this.type = type;
     }
 
     public char getSeatChar() {

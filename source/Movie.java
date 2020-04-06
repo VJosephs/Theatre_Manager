@@ -13,7 +13,7 @@ public class Movie extends Show {
      * @param location    The theater that the movie is at.
      * @param price       The amount a ticket for the movie costs
      */
-    public Movie(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
+    public Movie(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         super(name, description, genre, ageRating, showTime, location, price);
     }
 

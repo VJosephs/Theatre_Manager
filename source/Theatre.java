@@ -64,6 +64,14 @@ public class Theatre implements Comparable<Theatre> {
         return layout;
     }
 
+    public ArrayList<Rating> getRatings() {
+        return ratings;
+    }
+
+    public ArrayList<Show> getShows() {
+        return shows;
+    }
+
     public void setLayout(Layout layout) {
         this.layout = layout;
     }

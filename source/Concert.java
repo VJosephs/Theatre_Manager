@@ -13,7 +13,7 @@ public class Concert extends Show {
      * @param location    The theater that the concert is at.
      * @param price       The amount a ticket for the concert costs
      */
-    public Concert(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
+    public Concert(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         super(name, description, genre, ageRating, showTime, location, price);
     }
 

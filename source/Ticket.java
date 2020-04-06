@@ -8,7 +8,8 @@
  */
 
 public class Ticket {
-    private Show show;
+    private String show;
+    private String location;
     private double price;
 
     /**
@@ -16,9 +17,10 @@ public class Ticket {
      *
      * @param show the show that the ticket is for
      */
-    public Ticket(Show show) {
+    public Ticket(String show, String location, double price) {
         this.show = show;
-        this.price = show.getPrice();
+        this.price = price;
+        this.location = location;
     }
 
     /**
@@ -26,7 +28,7 @@ public class Ticket {
      *
      * @return the show that the ticket is for
      */
-    public Show getShow() {
+    public String getShow() {
         return this.show;
     }
 
@@ -44,15 +46,15 @@ public class Ticket {
      *
      * @return the location of the show that the ticket is for
      */
-    public Theatre getTheatre() {
-        return show.getLocation();
+    public String getLocation() {
+        return location;
     }
 
     /**
      * Prints the name and time of the show the ticket is for
      */
     public String toString() {
-        return "Admission to " + show.getName() + " at " + show.getShowTime();
+        return "Admission to " + getShow() + " at a cost of " + getPrice();
     }
 
 }

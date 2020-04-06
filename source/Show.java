@@ -6,7 +6,7 @@ public class Show implements Comparable<Show> {
     protected String name, genre, description, ageRating;
     private Date showTime;
     private double price;
-    private Theatre location;
+    private String location;
     private ArrayList<String> cast;
     private ArrayList<Rating> ratings;
     private ArrayList<Ticket> purchasedTickets;
@@ -22,7 +22,7 @@ public class Show implements Comparable<Show> {
      * @param location    The theater that the show is at.
      * @param price       The amount a ticket for the show costs
      */
-    public Show(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
+    public Show(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         this.name = name;
         this.description = description;
         this.showTime = showTime;
@@ -70,7 +70,7 @@ public class Show implements Comparable<Show> {
         return sum / ratings.size();
     }
 
-    public Theatre getLocation() {
+    public String getLocation() {
         return location;
     }
 

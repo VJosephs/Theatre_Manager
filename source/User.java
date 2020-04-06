@@ -26,8 +26,8 @@ public class User {
         this.RewardPoints = 0;
     }
 
-    public void purchaseTicket(Show show) {
-        Ticket ticket = new Ticket(show);
+    public void purchaseTicket(String show, String location, double price) {
+        Ticket ticket = new Ticket(show, location, price);
         cart.addTicket(ticket);
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
     }

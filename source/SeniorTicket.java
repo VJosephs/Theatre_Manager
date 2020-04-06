@@ -8,7 +8,7 @@ public class SeniorTicket extends Ticket {
      *
      * @param show The show that the ticket is for
      */
-    public SeniorTicket(Show show) {
-        super(show);
+    public SeniorTicket(String show, String location, double price) {
+        super(show, location, price);
     }
 }
