@@ -21,6 +21,10 @@ public class JSONReader extends JSONConstants {
         return null;
     }
 
+    public void writeToFile() {
+        writeJSON();
+    }
+
     private void writeJSON() {
         JSONArray jsonTheatres = new JSONArray();
         JSONArray jsonUsers = new JSONArray();
@@ -41,7 +45,7 @@ public class JSONReader extends JSONConstants {
         userJSON.put(USER_LAST_NAME, user.getLastName());
         userJSON.put(USER_USERNAME, user.getUsername());
         userJSON.put(USER_PASSWORD, user.getPassword());
-        userJSON.put(USER_REWARDS_POINTS, user.getRewardpoints());
+        userJSON.put(USER_REWARDS_POINTS, user.getRewardsPoints());
         userJSON.put(USER_CURRENT_TRANSACTIONS, getTicketArray(user.getCurrentTransactions()));
         userJSON.put(USER_PAST_TRANSACTIONS, getTicketArray(user.getPastTransactions()));
         userJSON.put(USER_SHOPPING_CART, getTicketArray(user.getCart().getCart()));

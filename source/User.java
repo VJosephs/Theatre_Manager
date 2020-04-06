@@ -108,7 +108,7 @@ public class User {
     }
 
 
-    public int getRewardpoints() {
+    public int getRewardsPoints() {
         return this.RewardPoints;
     }
 

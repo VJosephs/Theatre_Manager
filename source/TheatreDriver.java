@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class TheatreDriver {
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Theatre> theatres = new ArrayList<>();
-    public Scanner input;
-    private static JSONReader reader;
+    public static ArrayList<Layout> layouts = new ArrayList<>();
+    private static JSONReader reader = new JSONReader(users,theatres);
     public static boolean quitter = false;
     public static Scanner keyboard = new Scanner(System.in);
     public static User signedInUser = new User();
@@ -60,7 +60,7 @@ public class TheatreDriver {
                     break;
             }
             System.out.println();
-            System.out.println();
+            getUnsignedInUI();
 
         }
 
@@ -76,11 +76,13 @@ public class TheatreDriver {
                     getSignedInUI();
                     break;
                 case 1:
+                    theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
                     break;
                 case 2:
                     getRewardPoints();
                     break;
                 case 3:
+                    reader.writeToFile(); //TODO move this to the right place
                     break;
 
                 case 4:
@@ -95,7 +97,7 @@ public class TheatreDriver {
                     break;
             }
             System.out.println();
-            System.out.println();
+            getSignedInUI();
 
         }
     }
@@ -148,7 +150,6 @@ public class TheatreDriver {
         System.out.println("What is your first name?");
         keyboard.nextLine();
         String firstName = keyboard.nextLine();
-        keyboard.nextLine();
         System.out.println("What is your last name?");
         String lastName = keyboard.nextLine();
         Date birthday = getDate();
@@ -171,7 +172,7 @@ public class TheatreDriver {
     }
 
     public static Date getDate() {
-        System.out.println("Enter your date of birth mm/dd/yy\n");
+        System.out.println("Enter your date of birth mm/dd/yy");
         String birthDay = keyboard.nextLine();
         Date retDate;
 
@@ -226,6 +227,44 @@ public class TheatreDriver {
         return retDate;
     }
 
+    public static Theatre createNewTheatreUI(Scanner input) {
+        input.nextLine();
+        Layout layout;
+        System.out.println("Enter Theatre Name: ");
+        String name = input.nextLine();
+        System.out.println("Enter Theatre address: ");
+        String address = input.nextLine();
+        System.out.println("You must not choose or create a layout, type 'choose' or 'create'");
+        if (input.nextLine().equalsIgnoreCase("Choose")) {
+            System.out.println("type a name of the layout you would like to use");
+            layout = findLayout(input.nextLine());
+            if (layout == null) {
+                System.out.println("The layout was not found you must create a new one");
+                layout = createNewLayout(input);
+            }
+        }
+        else {
+            layout = createNewLayout(input);
+        }
+        return new Theatre(name, address, layout);
+    }
+
+    public static Layout createNewLayout(Scanner input) {
+        System.out.println("What will be the name of this layout?");
+        String name = input.nextLine();
+        Layout layout = new Layout(name);
+        layout.makeLayout(input);
+        return layout;
+    }
+
+    public static Layout findLayout(String name) {
+        for (Layout l : layouts) {
+            if (l.getName().equalsIgnoreCase(name))
+                return l;
+        }
+        return null;
+    }
+
     public static boolean signIn(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -242,7 +281,7 @@ public class TheatreDriver {
     public static void getRewardPoints() {
 
         System.out.println("**************************************");
-        System.out.println("You have " + signedInUser.getRewardpoints() + " rewards points");
+        System.out.println("You have " + signedInUser.getRewardsPoints() + " rewards points");
         System.out.println("**************************************");
 
     }

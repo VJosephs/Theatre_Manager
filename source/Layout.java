@@ -32,15 +32,14 @@ public class Layout {
         }
     }
 
-    public void makeLayout() {
-        Scanner input = new Scanner(System.in);
+    public void makeLayout(Scanner input) {
         int width;
         int height;
 
 
-        System.out.println("Please give the width and height of the Theatre. \n");
-        width = takeIntVal(input);
-        height = takeIntVal(input);
+        System.out.println("Please give the width and height of the Theatre: \n");
+        width = takeIntVal(input, "Width: ");
+        height = takeIntVal(input, "Height: ");
 
         initSeats(width, height);
         System.out.println("The seats have been initialized");
@@ -48,7 +47,7 @@ public class Layout {
         String type = "";
         System.out.println("Please choose what the seats will be set to type \"quit\" to finish");
         while (!type.equalsIgnoreCase("quit")) {
-            System.out.println("Enter two points followed by a type ex( A1 B4 available)\n: ");
+            System.out.println("Enter two points followed by a type ex( A1 B4 available): ");
             type = input.nextLine();
             if (stringValid(type)) {
                 String[] brokenString = chopString(type);
@@ -58,16 +57,13 @@ public class Layout {
                 System.out.println("The line \"" + type + "\" seems to be invalid please try again");
             }
         }
-
-
-        input.close();
     }
 
-    private int takeIntVal(Scanner input) {
+    private int takeIntVal(Scanner input, String prompt) {
         int Val = 0;
         while (Val == 0) {
             try {
-                System.out.println("Width: ");
+                System.out.print(prompt);
                 Val = Integer.parseInt(input.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid Value must be an integer above 0");
@@ -82,7 +78,7 @@ public class Layout {
         seats = new Seat[WIDTH][HEIGHT];
         for (Seat[] seat : seats) {
             for (int j = 0; j < seats[0].length; ++j) {
-                seat[j].setType("blank");
+                seat[j] = new Seat("blank");
             }
         }
     }
