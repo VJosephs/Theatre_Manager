@@ -3,6 +3,17 @@
 import java.util.Date;
 
 public class Movie extends Show {
+	
+	/**
+     * Creates a new movie
+     * @param name The name of the movie
+     * @param description The description of the movie
+     * @param genre The genre of the movie
+     * @param ageRating The age rating of the movie
+     * @param showTime The time that the movie is being played
+     * @param location The theater that the movie is at.
+     * @param price The amount a ticket for the movie costs
+     */
     public Movie(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
         super(name, description, genre,ageRating,showTime, location, price);
     }

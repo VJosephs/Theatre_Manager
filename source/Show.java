@@ -11,6 +11,16 @@ public class Show {
     private ArrayList<Rating> ratings;
     private ArrayList<Ticket> purchasedTickets;
 
+    /**
+     * Creates a new show
+     * @param name The name of the Show
+     * @param description The description of the Show
+     * @param genre The genre of the Show
+     * @param ageRating The age rating of the show
+     * @param showTime The time that the show is being played
+     * @param location The theater that the show is at.
+     * @param price The amount a ticket for the show costs
+     */
     public Show(String name, String description, String genre, String ageRating, Date showTime, Theatre location, double price) {
         this.name = name;
         this.description = description;
@@ -46,6 +56,10 @@ public class Show {
         return price;
     }
 
+    /**
+     * Averages together all of the ratings of a show
+     * @return The average rating of the show
+     */
     public double getAvgRating() {
         double sum = 0;
         for(Rating r : ratings) {
