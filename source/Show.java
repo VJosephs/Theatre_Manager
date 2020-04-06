@@ -95,4 +95,20 @@ public class Show implements Comparable<Show> {
     public int compareTo(Show o) {
         return Double.compare(this.getAvgRating(), o.getAvgRating());
     }
+    
+    public void removeShowRating(Rating rating) {
+    	for(Rating rating1 : ratings) {
+    		if(rating1.equals(rating)) {
+    			ratings.remove(rating);
+    		}
+    	}
+    }
+    
+    public double getTicketSale() {
+    	int ticketSold = purchasedTickets.size() +1;
+    	double sales = price * ticketSold;
+    	return sales;
+    }
+
+
 }

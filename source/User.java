@@ -108,8 +108,20 @@ public class User {
 		return this.password;
 	}
 	
+	
+	
 	public int getRewardpoints() {
 		return this.RewardPoints;
 	}
-
+	
+	public void addRewardPoints(int funds) {
+		RewardPoints += funds;
+	}
+	public void refundTicket() {
+		int ind = pastTransactions.size();
+		Ticket ticket = pastTransactions.get(ind);
+		int funds = (int) ticket.getPrice();
+		addRewardPoints(funds);
+		pastTransactions.remove(ind);
+	}
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Employee extends User {
@@ -7,21 +8,32 @@ public class Employee extends User {
         super(firstName, lastName, username, birthday, password);
     }
 
-    public void refund(String username) {
-        //TODO fill out method body
+    public void refund(String username, ArrayList<User> users) {
+        for(User user: users) {
+        	if(user.getUsername() == username) {
+        		user.refundTicket();
+        	}
+        }
     }
 
     public void addShow(Show show) {
-        //TODO add method body
+    	location.addShow(show);
     }
 
     public void viewTicketSales() {
-        //TODO add method body
+        location.getTicketSales();
+    	
     }
 
-    public void removeRating(Rating rating) {
-        //TODO add method body
+    public void removeTheatreRating(Rating rating) {
+    	location.removeRating(rating);
+    }
+    
+    public void removeShowRating(Rating rating, Show show) {
+    	show.removeShowRating(rating);
     }
 
-
+    public void setTheatre(Theatre location) {
+    	this.location = location;
+    }
 }
