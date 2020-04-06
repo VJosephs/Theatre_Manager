@@ -1,12 +1,15 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Searcher {
 
-    public Searcher() {
-        //TODO add method body
+    private ArrayList<Theatre> theatres;
+
+    public Searcher(ArrayList<Theatre> theatres) {
+        setTheatres(theatres);
     }
 
-    public  ArrayList<Show> searchRatings() {
+    public ArrayList<Show> searchRatings() {
         //TODO add method body
         return null;
     }
@@ -27,4 +30,7 @@ public class Searcher {
     }
 
 
+    public void setTheatres(ArrayList<Theatre> theatres) {
+        this.theatres = Objects.requireNonNullElseGet(theatres, ArrayList::new);
+    }
 }
