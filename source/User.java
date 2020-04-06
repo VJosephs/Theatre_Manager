@@ -7,10 +7,12 @@ public class User {
 	private String username;
 	private Date birthday; 
 	private String password;
-	private int RewardPoints;
+	private int RewardPoints = 0;
 	private ArrayList<Ticket> pastTransactions = new ArrayList<>();
 	private ArrayList<Ticket> currentTransactions = new ArrayList<>();
 	private ShoppingCart cart = new ShoppingCart(currentTransactions);
+	
+	public User() {}
 
 	public User(String firstName, String lastName, String username, Date birthday, String password) {
 		this.firstName = firstName;
@@ -18,6 +20,7 @@ public class User {
 		this.username =username;
 		this.birthday = birthday;
 		this.password = password;
+		this.RewardPoints = 0;
 	}
 	
 	public void purchaseTicket(Show show) {
@@ -41,7 +44,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", birthday="
-				+ birthday + ", paymentInfo=" + paymentInfo + ", password=" + password + ", RewardPoints="
+				+ birthday + ", password=" + password + ", RewardPoints="
 				+ RewardPoints + ", pastTransactions=" + pastTransactions + "]";
 	}
 	
@@ -94,4 +97,15 @@ public class User {
 			return false;
 		return true;
 	}
+	public String getUsername() {
+		return this.username;
+	}
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public int getRewardpoints() {
+		return this.RewardPoints;
+	}
+	
 }
