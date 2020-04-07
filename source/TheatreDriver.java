@@ -41,7 +41,7 @@ public class TheatreDriver {
                     getRewardPoints();
                     break;
                 case 3:
-                    reader.writeToFile(); //TODO move this to the right place
+                    //TODO move this to the right place
                     break;
 
                 case 4:
@@ -56,6 +56,8 @@ public class TheatreDriver {
                     quitter = true;
                     printGoodbye();
                     break;
+                case 8:
+                	reader.writeToFile();
             }
             System.out.println();
             getSignedInUI();
@@ -86,6 +88,7 @@ public class TheatreDriver {
         System.out.println("To view concessions enter 5");
         System.out.println("For support enter 6");
         System.out.println("To quit enter 7");
+        System.out.println("To save enter 8");
 
     }
 
@@ -97,6 +100,7 @@ public class TheatreDriver {
         System.out.println("To view concessions enter 4");
         System.out.println("For support enter 5");
         System.out.println("To quit enter 6");
+        System.out.println("To save enter 8");
     }
 
     public static void getEmployeeUI() {
@@ -107,6 +111,7 @@ public class TheatreDriver {
         System.out.println("To view concessions enter 4");
         System.out.println("For support enter 5");
         System.out.println("To quit enter 6");
+        System.out.println("To save enter 8");
     }
 
     public static void EmployeeUI() {
@@ -143,6 +148,8 @@ public class TheatreDriver {
                     quitter = true;
                     printGoodbye();
                     break;
+                case 8: 
+                	reader.writeToFile();
             }
             System.out.println();
             getSignedInUI();
@@ -183,7 +190,6 @@ public class TheatreDriver {
         String password = keyboard.nextLine();
         getSignedInUI();
         User user = new User(firstName, lastName, username, birthday, password);
-        reader.writeToFile();
         return user;
     }
 
@@ -210,7 +216,6 @@ public class TheatreDriver {
             user.setTheatre(location);
         }
         users.add(user);
-        reader.writeToFile();
         signedInUser = user;
         signedInEmployee = user;
     }
@@ -226,7 +231,6 @@ public class TheatreDriver {
         System.out.println("**     Logging you in.     **");
         System.out.println();
         users.add(user);
-        reader.writeToFile();
         signedInUser = user;
     }
 
@@ -440,7 +444,6 @@ public class TheatreDriver {
             Play play = new Play(name, desc, genre, ageRating, showTime, theatre.getAddress(), price);
             theatre.addShow(play);
         }
-        reader.writeToFile();
     }
 
     public static void signOut() {
@@ -491,6 +494,8 @@ public class TheatreDriver {
                     printGoodbye();
                     quitter = true;
                     break;
+                case 8:
+                	reader.writeToFile();
             }
             System.out.println();
 
