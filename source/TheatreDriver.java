@@ -34,7 +34,7 @@ public class TheatreDriver {
                     if (i == 1)
                         EmployeeUI();
                     else if (i == 2)
-                        getSignedInUI();
+                        signedInUI();
                     break;
                 case 2:
                     System.out.println("Enter Username: ");
@@ -221,6 +221,7 @@ public class TheatreDriver {
         String username = keyboard.nextLine();
         System.out.println("What is your password?");
         String password = keyboard.nextLine();
+        getSignedInUI();
         return new User(firstName, lastName, username, birthday, password);
     }
 
