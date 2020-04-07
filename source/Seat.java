@@ -3,6 +3,10 @@ public class Seat {
     private boolean valid;
     private String type;
 
+        /**
+     *
+     * @param type    Used to know what type of event the seat is for
+     */
     public Seat(String type) {
         setType(type);
 

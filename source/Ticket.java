@@ -12,10 +12,11 @@ public class Ticket {
     private String location;
     private double price;
 
-    /**
-     * Creates a ticket object
+        /**
      *
-     * @param show the show that the ticket is for
+     * @param show      name of show the ticket is for
+     * @param location  the location of the theater the ticket is for
+     * @param price     price of the ticket
      */
     public Ticket(String show, String location, double price) {
         this.show = show;
