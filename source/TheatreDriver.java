@@ -220,7 +220,7 @@ public class TheatreDriver {
         signedInEmployee = user;
     }
 
-    public static void creatAverageUser() {
+    public static void createAverageUser() {
         User user = createUser();
         if (users.contains(user)) {
             System.out.println("Account in use.....");
