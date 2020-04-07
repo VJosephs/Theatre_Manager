@@ -19,7 +19,6 @@ public class Ticket {
      * @param show     name of show the ticket is for
      * @param location the location of the theater the ticket is for
      * @param price    price of the ticket
-     * @return n/a     its a constructor
      */
     public Ticket(String show, String location, double price) {
         this.show = show;
@@ -29,6 +28,7 @@ public class Ticket {
 
     /**
      * Returns the show that the ticket is for
+     *
      * @return the show that the ticket is for
      */
     public String getShow() {
@@ -37,6 +37,7 @@ public class Ticket {
 
     /**
      * Returns the price of the ticket
+     *
      * @return the price of the ticket
      */
     public double getPrice() {
@@ -45,8 +46,8 @@ public class Ticket {
 
     /**
      * Returns the theatre that the show is located in
+     *
      * @return the location of the show that the ticket is for
-     * @excpetion  N/a
      */
     public String getLocation() {
         return location;
@@ -69,19 +70,19 @@ public class Ticket {
                 "**                                                                     **\n" +
                 "*************************************************************************\n" +
                 "*************************************************************************\n" +
-                "          Ticket for one playing of: "+ show.getName() +"\n" +
-                " On the date of: "+show.getShowTime().toString() + "\n" +
-                "Purchased for the amount $"+show.getPrice() + "\n" +
+                "          Ticket for one playing of: " + show.getName() + "\n" +
+                "On the date of: " + show.getShowTime().toString() + "\n" +
+                "Purchased for the amount $" + show.getPrice() + "\n" +
                 "Seat number: " + str;
 
         try {
-            FileWriter file = new FileWriter("Tickets/Ticket for "+show.getName() + " ("+str+").txt" );
+            FileWriter file = new FileWriter("Tickets/Ticket_for_" + show.getName() + "_(" + str + ").txt");
             file.write(outString);
             file.flush();
+            file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 

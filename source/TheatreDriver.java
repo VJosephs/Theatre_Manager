@@ -545,6 +545,8 @@ public class TheatreDriver {
             System.out.println("Seat format Column Letter row number 'A12'");
             input = keyboard.nextLine();
             String seatString = takeSeat(input, t);
+            if(seatString.equals("done"))
+                break;
             ticket.print(s, seatString);
         }
     }
@@ -552,7 +554,7 @@ public class TheatreDriver {
     public static String takeSeat(String s, Theatre t) {
         while (!s.matches("[A-Za-z][0-9]+")) {
             if (s.equalsIgnoreCase("done")) {
-                return "";
+                return "done";
             }
             System.out.println("This is an invalid seat please try again");
             s = keyboard.nextLine();
@@ -560,7 +562,7 @@ public class TheatreDriver {
         int j = s.charAt(0) - 65;
         int i = Integer.parseInt(s.replaceAll("[a-zA-Z]", ""));
 
-        t.getLayout().getSeats()[i][j] = new Seat("unavailable");
+        t.getLayout().getSeats()[i][j] = new Seat("taken");
         t.getLayout().printLayout();
         return s;
     }
