@@ -3,8 +3,8 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -29,7 +29,7 @@ public class JSONReader extends JSONConstants {
     }
 
     private static User getUser(JSONObject jo) {
-        Date birthday = getDate(jo.getString(USER_BIRTHDAY));
+        Date birthday = getDateFromString(jo.getString(USER_BIRTHDAY));
         String firstName = jo.getString(USER_FIRST_NAME);
         String lastName = jo.getString(USER_LAST_NAME);
         String username = jo.getString(USER_USERNAME);
@@ -42,6 +42,11 @@ public class JSONReader extends JSONConstants {
         user.addRewardPoints(rewardsPoints);
         //TODO add methods to set ticket arrays
         return user;
+    }
+
+    private static Date getDateFromString(String str) {
+        String[] s = str.split("-");
+        return new Date(Integer.parseInt(s[2]),Integer.parseInt(s[0]),Integer.parseInt(s[1]));
     }
 
     private static ArrayList<Ticket> getTicketArray(JSONArray ja) {
@@ -85,11 +90,12 @@ public class JSONReader extends JSONConstants {
     private static Show getShow(JSONObject jo) {
         return new Show(jo.getString(SHOW_NAME), jo.getString(SHOW_DESCRIPTION),
                 jo.getString(SHOW_GENRE), jo.getString(SHOW_AGE_RATING),
-                getDate(jo.getString(SHOW_SHOW_TIME)), jo.getString(SHOW_LOCATION), jo.getDouble(SHOW_PRICE));
+                getDate((jo.getJSONObject(SHOW_SHOW_TIME))), jo.getString(SHOW_LOCATION), jo.getDouble(SHOW_PRICE));
     }
 
-    private static Date getDate(String jo) {
-        String[] s = jo.split("-");
+    private static Date getDate(JSONObject jo) {
+        String str = jo.getString(DATE_STRING);
+        String[] s = str.split("-");
         return new Date(Integer.parseInt(s[2]),Integer.parseInt(s[0]),Integer.parseInt(s[1]));
     }
 
