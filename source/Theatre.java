@@ -28,7 +28,12 @@ public class Theatre implements Comparable<Theatre> {
         this.shows = new ArrayList<>();
     }
 
-    public void addShow(Show show) {
+    @Override
+	public String toString() {
+		return "Theatre [name=" + name + ", address=" + address + "  " + getAvgRating() + "/5]";
+	}
+
+	public void addShow(Show show) {
         shows.add(show);
     }
 

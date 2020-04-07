@@ -29,8 +29,13 @@ public class TheatreDriver {
                     getUnsignedInUI();
                     break;
                 case 1:
-                    users.add(createAccount());
-                    signedInUI();
+                    int i = createAccount();
+                    if(i==1) 
+                    	EmployeeUI();
+                    else if(i==2)
+                    	getSignedInUI();
+                    else
+                    	break;
                     break;
                 case 2:
                     System.out.println("Enter Username: ");
@@ -45,7 +50,7 @@ public class TheatreDriver {
                     }
                     break;
                 case 3:
-                    break;
+                    printTheatres();
                 case 4:
                     break;
                 case 5:
@@ -129,7 +134,7 @@ public class TheatreDriver {
     }
 
     public static void getSignedInUI() {
-        System.out.println("To get this menu again press 0");
+        System.out.println("To get this menu again enter 0");
         System.out.println("To find a theatre enter 1");
         System.out.println("To view your rewards points enter 2");
         System.out.println("To view your Tickets enter 3");
@@ -137,6 +142,52 @@ public class TheatreDriver {
         System.out.println("For support enter 5");
         System.out.println("To quit enter 6");
     }
+    
+    public static void getEmployeeUI() {
+    	System.out.println("To get this menu again enter 0");
+        System.out.println("To perform a refund enter 1");
+        System.out.println("To view ticket sales enter 2");
+        System.out.println("To add a show enter 3");
+        System.out.println("To view concessions enter 4");
+        System.out.println("For support enter 5");
+        System.out.println("To quit enter 6");
+    }
+    
+    public static void EmployeeUI() {
+        while (!quitter) {
+
+            int choice = keyboard.nextInt();
+            switch (choice) {
+                case 0:
+                    getSignedInUI();
+                    break;
+                case 1:
+                    theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
+                    break;
+                case 2:
+                    getRewardPoints();
+                    break;
+                case 3:
+                    reader.writeToFile(); //TODO move this to the right place
+                    break;
+
+                case 4:
+                    ConcessionMenu();
+                    break;
+                case 5:
+                    printSystemSupport();
+                    break;
+                case 6:
+                    quitter = true;
+                    printGoodbye();
+                    break;
+            }
+            System.out.println();
+            getSignedInUI();
+
+        }
+    }
+    
 
 
     public static void printGoodbye() {
@@ -145,8 +196,41 @@ public class TheatreDriver {
         System.out.println("****************************************");
     }
 
-    public static User createAccount() {
+    public static int createAccount() {
+    	System.out.println("Are you an Employee?(Answer 'yes' or 'no'"); 
+    	String emp = keyboard.nextLine();	
+    	if(emp.equalsIgnoreCase("yes")) {
+    		System.out.println("What theatre do you work at?(please choose the number)");
+    		printTheatres();
+    		int choice = keyboard.nextInt();
+    		Theatre location = theatres.get(choice);
+    		
+    		System.out.println("What is your first name?");
+            keyboard.nextLine();
+            String firstName = keyboard.nextLine();
+            System.out.println("What is your last name?");
+            String lastName = keyboard.nextLine();
+            Date birthday = getDate();
 
+            System.out.println("What do you want as your username?");
+            String username = keyboard.nextLine();
+            System.out.println("What is your password?");
+            String password = keyboard.nextLine();
+            Employee user = new Employee(firstName, lastName, username, birthday, password);
+            if (users.contains(user)) {
+                System.out.println("Account in use.....");
+                return 0;
+            }
+            System.out.println("**   Account Created !!   **");
+            System.out.println();
+            System.out.println("**     Logging you in.     **");
+            System.out.println();
+            users.add(user);
+            getSignedInUI();
+            return 1;
+    	}
+    	
+    	else {
         System.out.println("What is your first name?");
         keyboard.nextLine();
         String firstName = keyboard.nextLine();
@@ -161,14 +245,16 @@ public class TheatreDriver {
         User user = new User(firstName, lastName, username, birthday, password);
         if (users.contains(user)) {
             System.out.println("Account in use.....");
-            return null;
+            return 0;
         }
         System.out.println("**   Account Created !!   **");
         System.out.println();
         System.out.println("**     Logging you in.     **");
         System.out.println();
         getSignedInUI();
-        return user;
+        users.add(user);
+        return 2;
+    	}
     }
 
     public static Date getDate() {
@@ -284,6 +370,12 @@ public class TheatreDriver {
         System.out.println("You have " + signedInUser.getRewardsPoints() + " rewards points");
         System.out.println("**************************************");
 
+    }
+    
+    public static void printTheatres() {
+    	for(int i = 0; i < theatres.size()-1; i++) {
+    		System.out.println(i + ": " + theatres.get(i).toString());
+    	}
     }
 
 }
