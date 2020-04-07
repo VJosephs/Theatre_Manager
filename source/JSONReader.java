@@ -1,174 +1,152 @@
-import java.util.ArrayList;
-import java.io.IOException;
-import java.io.FileWriter;
-import java.util.Date;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.io.IOException;
+import java.util.Date;
+
 
 public class JSONReader extends JSONConstants {
-    private ArrayList<User> users;
-    private ArrayList<Theatre> theatres;
 
-    JSONReader(ArrayList<User> users, ArrayList<Theatre> theatres) {
-        this.users = users;
-        this.theatres = theatres;
+
+    public ArrayList<Theatre> getTheatres() {
+        return getTheatresList(fileToString(CONFIG_THEATRES));
     }
 
-
-    private String readJSON(String fileName) {
-        //TODO add method body
-        return null;
+    public ArrayList<User> getUsers() {
+        return getUsersList(fileToString(CONFIG_USERS));
     }
 
-    public void writeToFile() {
-        writeJSON();
-    }
-
-    private void writeJSON() {
-        JSONArray jsonTheatres = new JSONArray();
-        JSONArray jsonUsers = new JSONArray();
-        for (Theatre theatre : theatres) {
-            jsonTheatres.put(THEATRE_THEATRE, getTheatreJSON(theatre));
+    private static ArrayList<User> getUsersList(String s) {
+        JSONArray ja = new JSONArray(new JSONTokener(s));
+        ArrayList<User> users = new ArrayList<>();
+        for (int i = 0; i < ja.length(); ++i) {
+            users.add(getUser(ja.getJSONObject(i)));
         }
-        for (User user : users) {
-            jsonUsers.put(USER_USER, getUserJSON(user));
+        return users;
+    }
+
+    private static User getUser(JSONObject jo) {
+        Date birthday = getDate(jo.getJSONObject(USER_BIRTHDAY));
+        String firstName = jo.getString(USER_FIRST_NAME);
+        String lastName = jo.getString(USER_LAST_NAME);
+        String username = jo.getString(USER_USERNAME);
+        String password = jo.getString(USER_PASSWORD);
+        int rewardsPoints = jo.getInt(USER_REWARDS_POINTS);
+        ArrayList<Ticket> pastTransactions = getTicketArray(jo.getJSONArray(USER_PAST_TRANSACTIONS));
+        ArrayList<Ticket> currentTransactions = getTicketArray(jo.getJSONArray(USER_CURRENT_TRANSACTIONS));
+        ArrayList<Ticket> shoppingCart = getTicketArray(jo.getJSONArray(USER_SHOPPING_CART));
+        User user = new User(firstName, lastName, username, birthday, password);
+        user.addRewardPoints(rewardsPoints);
+        //TODO add methods to set ticket arrays
+        return user;
+    }
+
+    private static ArrayList<Ticket> getTicketArray(JSONArray ja) {
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        for(int i = 0; i < ja.length(); ++i) {
+            tickets.add(getTicket(ja.getJSONObject(i)));
         }
-        writeFile(jsonTheatres, CONFIG_THEATRES);
-        writeFile(jsonUsers, CONFIG_USERS);
+        return tickets;
     }
 
-    private JSONObject getUserJSON(User user) {
-        JSONObject userJSON = new JSONObject();
-        userJSON.put(USER_BIRTHDAY, user.getBirthdayString());
-        userJSON.put(USER_FIRST_NAME, user.getFirstName());
-        userJSON.put(USER_LAST_NAME, user.getLastName());
-        userJSON.put(USER_USERNAME, user.getUsername());
-        userJSON.put(USER_PASSWORD, user.getPassword());
-        userJSON.put(USER_REWARDS_POINTS, user.getRewardsPoints());
-        userJSON.put(USER_CURRENT_TRANSACTIONS, getTicketArray(user.getCurrentTransactions()));
-        userJSON.put(USER_PAST_TRANSACTIONS, getTicketArray(user.getPastTransactions()));
-        userJSON.put(USER_SHOPPING_CART, getTicketArray(user.getCart().getCart()));
-        return userJSON;
+    private static Ticket getTicket(JSONObject jo) {
+        return new Ticket(jo.getString(TICKET_SHOW), jo.getString(TICKET_LOCATION), jo.getDouble(TICKET_PRICE));
     }
 
-    private JSONObject getTheatreJSON(Theatre theatre) {
-        JSONObject theatreJSON = new JSONObject();
-        theatreJSON.put(THEATRE_ADDRESS, theatre.getAddress());
-        theatreJSON.put(THEATRE_LAYOUT, getLayoutJSON(theatre.getLayout()));
-        theatreJSON.put(THEATRE_NAME, theatre.getName());
-        theatreJSON.put(THEATRE_RATINGS, getRatingArrayJSON(theatre.getRatings()));
-        theatreJSON.put(THEATRE_SHOWS, getShowArrayJSON(theatre.getShows()));
-        return theatreJSON;
-    }
-
-    private JSONArray getShowArrayJSON(ArrayList<Show> shows) {
-        JSONArray showsJSON = new JSONArray();
-        for (Show show : shows) {
-            showsJSON.put(SHOW_SHOW, getShowJSON(show));
+    private ArrayList<Theatre> getTheatresList(String s) {
+        JSONArray ja = new JSONArray(new JSONTokener(s));
+        ArrayList<Theatre> theatres = new ArrayList<>();
+        for (int i = 0; i < ja.length(); ++i) {
+            theatres.add(getTheatre(ja.getJSONObject(i)));
         }
-        return showsJSON;
+        return theatres;
+    }
+    private static Theatre getTheatre(JSONObject jo) {
+        String address = jo.getString(THEATRE_ADDRESS);
+        String name = jo.getString(THEATRE_NAME);
+        ArrayList<Rating> ratings = getRatingsArray(jo.getJSONArray(THEATRE_RATINGS));
+        ArrayList<Show> shows = getShowArray(jo.getJSONArray(THEATRE_SHOWS));
+        Layout layout = getLayout(jo.getJSONObject(THEATRE_LAYOUT));
+
+        return new Theatre(name, address, layout, ratings, shows);
     }
 
-
-    private JSONObject getShowJSON(Show show) {
-        JSONObject showJSON = new JSONObject();
-        showJSON.put(SHOW_AGE_RATING, show.getShowRating());
-        showJSON.put(SHOW_DESCRIPTION, show.getDescription());
-        showJSON.put(SHOW_GENRE, show.getGenre());
-        showJSON.put(SHOW_LOCATION, show.getLocation());
-        showJSON.put(SHOW_SHOW_TIME, getDateJSON(show.getShowTime()));
-        showJSON.put(SHOW_PRICE, show.getPrice());
-        showJSON.put(SHOW_NAME, show.getName());
-        showJSON.put(SHOW_CAST, getStringArrayJSON(show.getCast()));
-        showJSON.put(SHOW_RATINGS, getRatingArrayJSON(show.getRatings()));
-        showJSON.put(SHOW_PURCHASED_TICKETS, getTicketArray(show.getPurchasedTickets()));
-        return showJSON;
-    }
-
-    private JSONArray getTicketArray(ArrayList<Ticket> tickets) {
-        JSONArray ticketsArrayJSON = new JSONArray();
-        for (Ticket ticket : tickets) {
-            ticketsArrayJSON.put(TICKET_TICKET, getTicketJSON(ticket));
+    private static ArrayList<Show> getShowArray(JSONArray ja) {
+        ArrayList<Show> shows = new ArrayList<>();
+        for (int i = 0; i < ja.length(); ++i) {
+            shows.add(getShow(ja.getJSONObject(i)));
         }
-        return ticketsArrayJSON;
+        return shows;
     }
 
-    private JSONObject getTicketJSON(Ticket ticket) {
-        JSONObject ticketJSON = new JSONObject();
-        ticketJSON.put(TICKET_LOCATION, ticket.getLocation());
-        ticketJSON.put(TICKET_PRICE, ticket.getPrice());
-        ticketJSON.put(TICKET_SHOW, ticket.getShow());
-        return ticketJSON;
+    private static Show getShow(JSONObject jo) {
+        return new Show(jo.getString(SHOW_NAME), jo.getString(SHOW_DESCRIPTION),
+                jo.getString(SHOW_GENRE), jo.getString(SHOW_AGE_RATING),
+                getDate(jo.getJSONObject(SHOW_SHOW_TIME)), jo.getString(SHOW_LOCATION), jo.getDouble(SHOW_PRICE));
     }
 
-    private JSONArray getStringArrayJSON(ArrayList<String> strings) {
-        JSONArray stringsJSON = new JSONArray();
-        for (String s : strings) {
-            stringsJSON.put(s);
+    private static Date getDate(JSONObject jo) {
+        String[] s = jo.getString(DATE_STRING).split("-");
+        return new Date(Integer.parseInt(s[2]),Integer.parseInt(s[0]),Integer.parseInt(s[1]));
+    }
+
+    private static ArrayList<Rating> getRatingsArray(JSONArray ja) {
+        ArrayList<Rating> ratings = new ArrayList<>();
+        for (int i = 0; i < ja.length(); ++i) {
+            ratings.add(getRating(ja.getJSONObject(i)));
         }
-        return stringsJSON;
+        return ratings;
     }
 
-    private JSONObject getDateJSON(Date date) {
-        JSONObject dateJSON = new JSONObject();
-        String dateString = "" + date.getMonth() + "-" + date.getDate() + "-" + date.getYear();
-        dateJSON.put(DATE_STRING, dateString);
-        return dateJSON;
+    private static Rating getRating(JSONObject jo) {
+        return new Rating(jo.getDouble(RATING_RATING), jo.getString(RATING_USERNAME), jo.getString(RATING_COMMENT));
     }
 
+    private static Layout getLayout(JSONObject jo) {
+        Layout l = new Layout(jo.getString(LAYOUT_NAME), getSeatMatrix(jo.getJSONArray(LAYOUT_SEAT_MATRIX)));
+        l.setHEIGHT(jo.getInt(LAYOUT_HEIGHT));
+        l.setWIDTH(jo.getInt(LAYOUT_WIDTH));
 
-    private JSONArray getRatingArrayJSON(ArrayList<Rating> ratings) {
-        JSONArray ratingsJSON = new JSONArray();
-        for (Rating rating : ratings) {
-            ratingsJSON.put(RATING, getRatingJSON(rating));
-        }
-        return ratingsJSON;
+        return l;
     }
 
-    private JSONObject getRatingJSON(Rating rating) {
-        JSONObject ratingJSON = new JSONObject();
-        ratingJSON.put(RATING_COMMENT, rating.getComment());
-        ratingJSON.put(RATING_RATING, rating.getRating());
-        ratingJSON.put(RATING_USERNAME, rating.getUserName());
-        return ratingJSON;
-    }
-
-    private JSONObject getLayoutJSON(Layout layout) {
-        JSONObject layoutJSON = new JSONObject();
-        layoutJSON.put(LAYOUT_NAME, layout.getName());
-        layoutJSON.put(LAYOUT_SEAT_MATRIX, getSeatMatrixJSON(layout.seats));
-        return layoutJSON;
-    }
-
-    private JSONArray getSeatMatrixJSON(Seat[][] seats) {
-        JSONArray seatMatrixJSON = new JSONArray();
-        for (Seat[] iSeats : seats) {
-            seatMatrixJSON.put(SEAT_ARR, getSeatArrayJSON(iSeats));
-        }
-        return seatMatrixJSON;
-    }
-
-    private JSONArray getSeatArrayJSON(Seat[] seats) {
-        JSONArray seatsJOSN = new JSONArray();
-        for (Seat seat : seats) {
-            seatsJOSN.put(SEAT_SEAT, getSeatJSON(seat));
-        }
-        return seatsJOSN;
-    }
-
-    private JSONObject getSeatJSON(Seat seat) {
-        JSONObject seatJSON = new JSONObject();
-        seatJSON.put(SEAT_TYPE, seat.getType());
-        return seatJSON;
-    }
-
-    public static void writeFile(JSONArray fileContentsJSON, String fileName) {
-        try (FileWriter file = new FileWriter(GENERAL_FILE_PATH + fileName)) {
-            file.write(fileContentsJSON.toString());
-            file.flush();
+    private static String fileToString(String fileName) {
+        StringBuilder sb = new StringBuilder();
+        int i;
+        try {
+            FileReader reader = new FileReader(GENERAL_FILE_PATH + fileName);
+            while ((i = reader.read()) != -1) {
+                sb.append((char) i);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return sb.toString().trim();
     }
+
+    private static Seat[][] getSeatMatrix(JSONArray ja) {
+        Seat[][] seats = new Seat[ja.length()][ja.getJSONArray(0).length()];
+
+        for (int i = 0; i < ja.length(); ++i) {
+            Seat[] s = getSeatArray(ja.getJSONArray(i));
+            System.arraycopy(s, 0, seats[i], 0, s.length);
+        }
+        return seats;
+    }
+
+    private static Seat[] getSeatArray(JSONArray ja) {
+        Seat[] seats = new Seat[ja.length()];
+        for (int i = 0; i < ja.length(); ++i) {
+            seats[i] = getSeat(ja.getJSONObject(i));
+        }
+        return seats;
+    }
+
+    private static Seat getSeat(JSONObject jo) {
+        return new Seat(jo.getString(SEAT_TYPE));
+    }
+
 }

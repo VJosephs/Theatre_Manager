@@ -1,33 +1,11 @@
-import java.util.ArrayList;
-import java.util.Date;
-
 public class JSONConstants {
     
-    protected static final String Show_show = 'show';
-    protected static final String Rating_rating = 'rating';
-    protected static final String User_user = 'user';
-    protected static final String Wallet_wallet = 'wallet';
-    protected static final String Employee_employee = 'employee';
-    protected static final String ShoppingCart_shopppingCart = 'Shopping Cart';
-    protected static final String Searcher_searcher = 'searcher';
-    protected static final String Ticket_ticket = 'ticket';
-    protected static final String ChildTicket_childTicket = childTicket = 'child ticket';
-    protected static final String SeniorTicket_seniorTicket = seniorTicket = 'senior ticket';
-    protected static final String Seat_seat = 'seat';
-    protected static final String Layout_layout = 'layout';
-    protected static Final String Show_show = 'show';
-    protected static final String Movie_movie = 'movie';
-    protected static final String Play_play = 'play';
-    protected static final String Concert_concert = 'concert';
-    protected static final String Theater_theater = 'theater';
-    
-    
 
-    protected static final String GENERAL_FILE_PATH = "config/";
-    protected static final String CONFIG_THEATRES = "theatres.json";
-    protected static final String CONFIG_USERS = "users.json";
+    protected static final  String GENERAL_FILE_PATH = "config/";
+    protected static final  String CONFIG_THEATRES = "theatres.json";
+    protected static final  String CONFIG_USERS = "users.json";
 
-    protected static final String DATE_STRING = "dateString";
+    protected static final  String DATE_STRING = "dateString";
 
     protected static final  String THEATRE_NAME = "theatreName";
     protected static final  String THEATRE_ADDRESS = "theatreAddress";
@@ -44,6 +22,8 @@ public class JSONConstants {
 
     protected static final  String LAYOUT_SEAT_MATRIX = "layoutMatrix";
     protected static final  String LAYOUT_NAME = "layoutName";
+    protected static final  String LAYOUT_HEIGHT = "layout";
+    protected static final  String LAYOUT_WIDTH = "width";
 
     protected static final  String SHOW_NAME = "showName";
     protected static final  String SHOW_DESCRIPTION = "showDescription";

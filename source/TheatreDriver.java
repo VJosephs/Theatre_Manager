@@ -9,7 +9,7 @@ public class TheatreDriver {
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Theatre> theatres = new ArrayList<>();
     public static ArrayList<Layout> layouts = new ArrayList<>();
-    private static JSONReader reader = new JSONReader(users, theatres);
+    private static JSONWriter reader = new JSONWriter(users, theatres);
     public static boolean quitter = false;
     public static Scanner keyboard = new Scanner(System.in);
     public static User signedInUser = new User();

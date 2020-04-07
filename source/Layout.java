@@ -143,6 +143,37 @@ public class Layout {
         }
     }
 
+    public Seat[][] getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Seat[][] seats) {
+        this.seats = seats;
+    }
+
+    public String getCurrentSeatType() {
+        return currentSeatType;
+    }
+
+    public void setCurrentSeatType(String currentSeatType) {
+        this.currentSeatType = currentSeatType;
+    }
+
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public void setHEIGHT(int HEIGHT) {
+        this.HEIGHT = HEIGHT;
+    }
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
+
+    public void setWIDTH(int WIDTH) {
+        this.WIDTH = WIDTH;
+    }
 
     public String getName() {
         return name;
