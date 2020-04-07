@@ -12,6 +12,8 @@ public class Play extends Show {
      * @param showTime    The time that the play is being played
      * @param location    The theater that the play is at.
      * @param price       The amount a ticket for the play costs
+     * @return n/a   its a constructor
+     * @exception  n/a
      */
     public Play(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         super(name, description, genre, ageRating, showTime, location, price);
@@ -19,8 +21,9 @@ public class Play extends Show {
 
     /**
      * Returns the age required to see a play based on its rating
-     *
+     * @param    none
      * @return The minimum age required to see the play
+     * @excpetion   none
      */
     public int getAgeRating() {
         switch (ageRating) {
