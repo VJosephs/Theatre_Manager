@@ -496,5 +496,3 @@ public class TheatreDriver {
 
         }
     }
-
-}
