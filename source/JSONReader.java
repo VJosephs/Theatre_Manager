@@ -29,7 +29,7 @@ public class JSONReader extends JSONConstants {
     }
 
     private static User getUser(JSONObject jo) {
-        Date birthday = getDate(jo.getJSONObject(USER_BIRTHDAY));
+        Date birthday = getDate(jo.getString(USER_BIRTHDAY));
         String firstName = jo.getString(USER_FIRST_NAME);
         String lastName = jo.getString(USER_LAST_NAME);
         String username = jo.getString(USER_USERNAME);
@@ -85,11 +85,11 @@ public class JSONReader extends JSONConstants {
     private static Show getShow(JSONObject jo) {
         return new Show(jo.getString(SHOW_NAME), jo.getString(SHOW_DESCRIPTION),
                 jo.getString(SHOW_GENRE), jo.getString(SHOW_AGE_RATING),
-                getDate(jo.getJSONObject(SHOW_SHOW_TIME)), jo.getString(SHOW_LOCATION), jo.getDouble(SHOW_PRICE));
+                getDate(jo.getString(SHOW_SHOW_TIME)), jo.getString(SHOW_LOCATION), jo.getDouble(SHOW_PRICE));
     }
 
-    private static Date getDate(JSONObject jo) {
-        String[] s = jo.getString(DATE_STRING).split("-");
+    private static Date getDate(String jo) {
+        String[] s = jo.split("-");
         return new Date(Integer.parseInt(s[2]),Integer.parseInt(s[0]),Integer.parseInt(s[1]));
     }
 
