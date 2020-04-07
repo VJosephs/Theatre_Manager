@@ -415,7 +415,7 @@ public class TheatreDriver {
     }
 
     public static void printTheatres() {
-        for (int i = 0; i < theatres.size() - 1; i++) {
+        for (int i = 0; i < theatres.size(); i++) {
             System.out.println(i + ": " + theatres.get(i).toString());
         }
     }
@@ -495,7 +495,7 @@ public class TheatreDriver {
                 case 4:
                     break;
                 case 5:
-                    ConcessionMenu();
+                    buyTicket();
                     break;
                 case 6:
                     printSystemSupport();
@@ -513,4 +513,58 @@ public class TheatreDriver {
 
         }
     }
+
+    public static void buyTicket() {
+        System.out.println("To what theatre will you be going? Type the number");
+        printTheatres();
+        int theatreNum = keyboard.nextInt();
+        keyboard.nextLine();
+        Theatre t = theatres.get(theatreNum);
+        System.out.println("To what show will you be going?");
+        printShows(t);
+        int showNum = keyboard.nextInt();
+        keyboard.nextLine();
+
+        selectSeats(t, t.getShows().get(showNum));
+
+    }
+
+    public static void printShows(Theatre t) {
+        for(Show s : t.getShows())
+            System.out.println(s.getName());
+    }
+
+    public static void selectSeats(Theatre t, Show s) {
+        String input = "";
+        while(!input.equalsIgnoreCase("done")) {
+            Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice());
+            if(signedInUser != null) {
+                signedInUser.getCart().addTicket(ticket);
+            }
+            System.out.println("Which seats will you buy?");
+            System.out.println("Seat format Column Letter row number 'A12'");
+            input = keyboard.nextLine();
+            String seatString = takeSeat(input, t);
+            ticket.print(s, seatString);
+        }
+    }
+
+    public static String takeSeat(String s, Theatre t) {
+        while(!s.matches("[A-Za-z][0-9]+")) {
+            if(s.equalsIgnoreCase("done")){
+                return "";
+            }
+            System.out.println("This is an invalid seat please try again");
+            s = keyboard.nextLine();
+        }
+        int j = s.charAt(0) - 65;
+        int i = Integer.parseInt(s.replaceAll("[a-zA-Z]",""));
+
+        t.getLayout().getSeats()[i][j] = new Seat("unavailable");
+        t.getLayout().printLayout();
+        return s;
+    }
+
+
+
 }
