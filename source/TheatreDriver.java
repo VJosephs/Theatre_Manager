@@ -35,12 +35,13 @@ public class TheatreDriver {
                     getSignedInUI();
                     break;
                 case 1:
-                    theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
+                    printTheatres();
                     break;
                 case 2:
                     getRewardPoints();
                     break;
                 case 3:
+                	signedInUser.getCurrentTransactions().toString();
                     //TODO move this to the right place
                     break;
 
@@ -110,7 +111,8 @@ public class TheatreDriver {
         System.out.println("To add a show enter 3");
         System.out.println("To view concessions enter 4");
         System.out.println("For support enter 5");
-        System.out.println("To quit enter 6");
+        System.out.println("To sign out enter 6");
+        System.out.println("To quit enter 7");
         System.out.println("To save enter 8");
     }
 
@@ -500,5 +502,14 @@ public class TheatreDriver {
             System.out.println();
 
         }
+    }
+    
+    public static void buyTickets() {
+    	System.out.println("**     What Theatre do you want to visit?     **");
+    	printTheatres();
+    	System.out.println("Enter the number of the theatre you want to visit.");
+    	int theatreNum = keyboard.nextInt();
+    	Theatre theatre = theatres.get(theatreNum);
+    	
     }
 }
