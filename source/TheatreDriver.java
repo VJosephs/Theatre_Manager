@@ -9,7 +9,8 @@ public class TheatreDriver {
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Theatre> theatres = new ArrayList<>();
     public static ArrayList<Layout> layouts = new ArrayList<>();
-    private static JSONWriter reader = new JSONWriter(users, theatres);
+    private static JSONWriter jsonWriter = new JSONWriter(users, theatres);
+    private static JSONReader jsonReader = new JSONReader();
     public static boolean quitter = false;
     public static Scanner keyboard = new Scanner(System.in);
     public static User signedInUser = new User();
@@ -57,12 +58,19 @@ public class TheatreDriver {
                     printGoodbye();
                     break;
                 case 8:
-                    reader.writeToFile();
+                    jsonWriter.writeToFile();
+                case 9:
+                    load();
             }
             System.out.println();
             getSignedInUI();
 
         }
+    }
+
+    public static void load() {
+        theatres = jsonReader.getTheatres();
+        users = jsonReader.getUsers();
     }
 
     public static void printSystemSupport() {
@@ -89,6 +97,7 @@ public class TheatreDriver {
         System.out.println("For support enter 6");
         System.out.println("To quit enter 7");
         System.out.println("To save enter 8");
+        System.out.println("To Load enter 9");
 
     }
 
@@ -99,8 +108,9 @@ public class TheatreDriver {
         System.out.println("To view your Tickets enter 3");
         System.out.println("To view concessions enter 4");
         System.out.println("For support enter 5");
-        System.out.println("To quit enter 6");
+        System.out.println("To sign out enter 6");
         System.out.println("To save enter 8");
+        System.out.println("To Load enter 9");
     }
 
     public static void getEmployeeUI() {
@@ -109,9 +119,10 @@ public class TheatreDriver {
         System.out.println("To view ticket sales enter 2");
         System.out.println("To add a show enter 3");
         System.out.println("To view concessions enter 4");
-        System.out.println("For support enter 5");
-        System.out.println("To quit enter 6");
+        System.out.println("To add a theatre enter 5");
+        System.out.println("To sing out enter 6");
         System.out.println("To save enter 8");
+        System.out.println("To Load enter 9");
     }
 
     public static void EmployeeUI() {
@@ -123,7 +134,6 @@ public class TheatreDriver {
                     getEmployeeUI();
                     break;
                 case 1:
-                    // theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
                     System.out.println("enter the username of the user to refund");
                     String username = keyboard.nextLine();
                     signedInEmployee.refund(username, users);
@@ -132,7 +142,6 @@ public class TheatreDriver {
                     System.out.println("$" + signedInEmployee.getLocation().getTicketSales());
                     break;
                 case 3:
-                    //reader.writeToFile(); //TODO move this to the right place
                     addNewShow();
                     break;
 
@@ -140,7 +149,7 @@ public class TheatreDriver {
                     ConcessionMenu();
                     break;
                 case 5:
-                    printSystemSupport();
+                    theatres.add(createNewTheatreUI(keyboard));
                     break;
                 case 6:
                     signOut();
@@ -149,10 +158,12 @@ public class TheatreDriver {
                     printGoodbye();
                     break;
                 case 8:
-                    reader.writeToFile();
+                    jsonWriter.writeToFile();
+                    break;
+                case 9:
+                    load();
             }
             System.out.println();
-            getSignedInUI();
 
         }
     }
@@ -189,8 +200,7 @@ public class TheatreDriver {
         System.out.println("What is your password?");
         String password = keyboard.nextLine();
         getSignedInUI();
-        User user = new User(firstName, lastName, username, birthday, password);
-        return user;
+        return new User(firstName, lastName, username, birthday, password);
     }
 
     public static void creatEmployee() {
@@ -495,7 +505,7 @@ public class TheatreDriver {
                     quitter = true;
                     break;
                 case 8:
-                    reader.writeToFile();
+                    jsonWriter.writeToFile();
             }
             System.out.println();
 
