@@ -11,7 +11,6 @@ public class Searcher {
      * @param theatres all the theaters that host events
      * @param shows    all the shows that users can by tickets for
      * @return n/a     its a constructor
-     * @exception  n/a
      */
     public Searcher(ArrayList<Theatre> theatres, ArrayList<Show> shows) {
         setTheatres(theatres);
@@ -40,7 +39,6 @@ public class Searcher {
     /**
      * @param name Used as the name of a show
      * @return retshows   will return the shows with this name
-     * @exception  n/a
      */
     public ArrayList<Show> searchShowNames(String name) {
         ArrayList<Show> retShows = new ArrayList<>();
@@ -51,10 +49,9 @@ public class Searcher {
         return retShows;
     }
 
-      /**
-     * @param name     Used as the name of a show
+    /**
+     * @param name Used as the name of a show
      * @return retTheatres   will return the theaters with a specific name
-     * @exception  n/a
      */
     public ArrayList<Theatre> searchTheatreNames(String name) {
         ArrayList<Theatre> retTheatres = new ArrayList<>();
@@ -68,7 +65,6 @@ public class Searcher {
     /**
      * @param castMember used to search for a specific actor in a film or event
      * @return retshows  will return the shows with this cast
-     * @exception  n/a
      */
     public ArrayList<Show> searchCast(String castMember) {
         ArrayList<Show> retShows = new ArrayList<>();
@@ -84,9 +80,8 @@ public class Searcher {
     /**
      * @param type Used to determine if the search is for movie,concert,or play
      * @return retshows   will return the shows with this type
-     * @exception  n/a
      */
-     */
+
     public ArrayList<Show> searchType(String type) {
         ArrayList<Show> retShows = new ArrayList<>();
         for (Show show : shows) {

@@ -530,15 +530,15 @@ public class TheatreDriver {
     }
 
     public static void printShows(Theatre t) {
-        for(Show s : t.getShows())
+        for (Show s : t.getShows())
             System.out.println(s.getName());
     }
 
     public static void selectSeats(Theatre t, Show s) {
         String input = "";
-        while(!input.equalsIgnoreCase("done")) {
+        while (!input.equalsIgnoreCase("done")) {
             Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice());
-            if(signedInUser != null) {
+            if (signedInUser != null) {
                 signedInUser.getCart().addTicket(ticket);
             }
             System.out.println("Which seats will you buy?");
@@ -550,21 +550,20 @@ public class TheatreDriver {
     }
 
     public static String takeSeat(String s, Theatre t) {
-        while(!s.matches("[A-Za-z][0-9]+")) {
-            if(s.equalsIgnoreCase("done")){
+        while (!s.matches("[A-Za-z][0-9]+")) {
+            if (s.equalsIgnoreCase("done")) {
                 return "";
             }
             System.out.println("This is an invalid seat please try again");
             s = keyboard.nextLine();
         }
         int j = s.charAt(0) - 65;
-        int i = Integer.parseInt(s.replaceAll("[a-zA-Z]",""));
+        int i = Integer.parseInt(s.replaceAll("[a-zA-Z]", ""));
 
         t.getLayout().getSeats()[i][j] = new Seat("unavailable");
         t.getLayout().printLayout();
         return s;
     }
-
 
 
 }

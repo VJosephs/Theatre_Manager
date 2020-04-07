@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.Scanner;
 
 public class Layout {
@@ -13,7 +12,6 @@ public class Layout {
      * @param name  Name of the seat that would appear on a ticket
      * @param seats index within the matrix for specific seat location
      * @return n/a   its a constructor
-     * @exception  n/a
      */
 
     public Layout(String name, Seat[][] seats) {
@@ -42,7 +40,6 @@ public class Layout {
     /**
      * @param input used for user to put in a specific
      * @return n/a   its void
-     * @exception  n/a
      */
     public void makeLayout(Scanner input) {
         int width;
@@ -88,7 +85,6 @@ public class Layout {
      * @param width  used for the horizontal rows in layout
      * @param height used for the vertical rows in layout
      * @return n/a   its void
-     * @exception  n/a
      */
     private void initSeats(int width, int height) {
         WIDTH = width;
@@ -117,7 +113,6 @@ public class Layout {
     /**
      * @param arr indexes that would appear on the ticket
      * @return intp[]   tzhis will be the coordinates of the seat in layout
-     * @exception  n/a
      */
     private int[] getPoints(String[] arr) {
         int a = (arr[0].charAt(0)) - 65;
@@ -142,7 +137,6 @@ public class Layout {
     /**
      * @param points used for exact location of the seat
      * @return int[]   This will be where the seat is located
-     * @exception  n/a
      */
     private int[] getDim(int[] points) {
         int aX = points[0];
@@ -159,9 +153,8 @@ public class Layout {
     }
 
     /**
-     * @param arr certain inedexes for specific seats
+     * @param arr certain indices for specific seats
      * @return n/a   its void
-     * @exception  n/a
      */
     private void setSeats(int[] arr) {
         int x = arr[0];

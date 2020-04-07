@@ -18,7 +18,6 @@ public class Theatre implements Comparable<Theatre> {
      * @param ratings ratings of events at the theater
      * @param shows   what type of shows will be shwon at the theater
      * @return n/a     its a constructor
-     * @exception  n/a
      */
     public Theatre(String name, String address, Layout layout, ArrayList<Rating> ratings,
                    ArrayList<Show> shows) {

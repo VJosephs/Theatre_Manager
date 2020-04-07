@@ -20,7 +20,6 @@ public class Ticket {
      * @param location the location of the theater the ticket is for
      * @param price    price of the ticket
      * @return n/a     its a constructor
-     * @exception  n/a
      */
     public Ticket(String show, String location, double price) {
         this.show = show;
@@ -30,9 +29,7 @@ public class Ticket {
 
     /**
      * Returns the show that the ticket is for
-     * @param   none
      * @return the show that the ticket is for
-     * @exception   none
      */
     public String getShow() {
         return this.show;
@@ -40,9 +37,7 @@ public class Ticket {
 
     /**
      * Returns the price of the ticket
-     * @param  none
      * @return the price of the ticket
-     * @exception none
      */
     public double getPrice() {
         return this.price;
@@ -50,7 +45,6 @@ public class Ticket {
 
     /**
      * Returns the theatre that the show is located in
-     * @param    none
      * @return the location of the show that the ticket is for
      * @excpetion  N/a
      */

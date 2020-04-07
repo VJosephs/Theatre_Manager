@@ -15,7 +15,6 @@ public class Employee extends User {
      * @param birthday        actual birthday of the user to verify age restrictions
      * @param password       String to keep the account protected and private
      * @return n/a   its a constructor
-     * @exception  n/a
      */
 
     public Employee(String firstName, String lastName, String username, Date birthday, String password) {

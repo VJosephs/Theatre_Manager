@@ -2,9 +2,8 @@ public class Wallet {
     private double balance;
 
     /**
-     * @param amount   the amount of money that is in the Users account
+     * @param amount the amount of money that is in the Users account
      * @return amount   the new amoount of money in the users account
-     * @exception  n/a
      */
     public void addBalance(double amount) {
         this.balance += amount;

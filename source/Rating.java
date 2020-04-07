@@ -12,7 +12,6 @@ public class Rating {
      * @param userName the name to know which account is rating
      * @param comment  comment for the user to make for why the rating is what it is
      * @return n/a   its a constructor
-     * @exception  n/a
      */
 
     public Rating(double rating, String userName, String comment) {
@@ -27,8 +26,6 @@ public class Rating {
 
     /**
      * @param rating 1 out of 5 to know how entertaingin the movie was
-     * @return n/a   its void
-     * @exception  n/a
      */
     private void setRating(double rating) {
         if (rating == 1 || rating == 1.5 || rating == 2 || rating == 2.5 || rating == 3 || rating == 3.5 || rating == 4 || rating == 4.5 || rating == 5) {

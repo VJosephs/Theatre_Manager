@@ -8,7 +8,6 @@ public class SeniorTicket extends Ticket {
      *
      * @param show The show that the ticket is for
      * @return n/a     its a constructor
-     * @exception  n/a
      */
     public SeniorTicket(String show, String location, double price) {
         super(show, location, price);

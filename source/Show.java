@@ -22,7 +22,7 @@ public class Show implements Comparable<Show> {
      * @param location    The theater that the show is at.
      * @param price       The amount a ticket for the show costs
      * @return n/a     its a constructor
-     * @exception  n/a
+     * @throws n/a
      */
     public Show(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         this.name = name;
@@ -61,9 +61,8 @@ public class Show implements Comparable<Show> {
 
     /**
      * Averages together all of the ratings of a show
-     * @param    none
+     *
      * @return The average rating of the show
-     * @exception  n/a
      */
     public double getAvgRating() {
         double sum = 0;
