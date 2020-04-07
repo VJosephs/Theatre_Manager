@@ -157,7 +157,7 @@ public class TheatreDriver {
             int choice = keyboard.nextInt();
             switch (choice) {
                 case 0:
-                    getSignedInUI();
+                    getEmployeeUI();
                     break;
                 case 1:
                     // theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
@@ -450,6 +450,7 @@ public class TheatreDriver {
         System.out.println("2. Concert");
         System.out.println("3. Play");
         int choice = keyboard.nextInt();
+        keyboard.nextLine();
         System.out.println("What is the name of the play?");
         String name = keyboard.nextLine();
         System.out.println("Give a Description of the show.");
