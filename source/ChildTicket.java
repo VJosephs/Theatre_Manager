@@ -8,6 +8,8 @@ public class ChildTicket extends Ticket {
      * @param price      Price of the child ticket that was bought
      * @param location   location of the show that the ticket is for
      * @param show       The name of the event or show that the ticket was purchased for
+     * @return n/a   its a constructor
+     * @exception  n/a
      */
     public ChildTicket(String show, String location, double price) {
         super(show, location, price);

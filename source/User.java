@@ -22,6 +22,8 @@ public class User {
      * @param username  made up name for the users account
      * @param birthday  actual birthday of the user to verify age restrictions
      * @param password  String to keep the account protected and private
+     * @return n/a      its a constructor
+     * @exception  n/a
      */
     public User(String firstName, String lastName, String username, Date birthday, String password) {
         this.firstName = firstName;
@@ -36,6 +38,8 @@ public class User {
      * @param show     name of the show
      * @param location location of the theater that the show is at
      * @param price    Price of the ticket
+     * @return n/a     its void   
+     * @exception  n/a
      */
     public void purchaseTicket(String show, String location, double price) {
         Ticket ticket = new Ticket(show, location, price);

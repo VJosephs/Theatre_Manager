@@ -5,6 +5,8 @@ public class ShoppingCart {
 
     /**
      * @param cart used as a matri that hold all the tickets a user is considering buying
+     * @return n/a     its a constructor
+     * @exception  n/a
      */
 
     ShoppingCart(ArrayList<Ticket> cart) {
