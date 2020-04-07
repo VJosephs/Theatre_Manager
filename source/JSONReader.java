@@ -29,10 +29,10 @@ public class JSONReader extends JSONConstants {
         JSONArray jsonTheatres = new JSONArray();
         JSONArray jsonUsers = new JSONArray();
         for (Theatre theatre : theatres) {
-            jsonTheatres.put(getTheatreJSON(theatre));
+            jsonTheatres.put(THEATRE_THEATRE, getTheatreJSON(theatre));
         }
         for (User user : users) {
-            jsonUsers.put(getUserJSON(user));
+            jsonUsers.put(USER_USER, getUserJSON(user));
         }
         writeFile(jsonTheatres, CONFIG_THEATRES);
         writeFile(jsonUsers, CONFIG_USERS);
@@ -65,7 +65,7 @@ public class JSONReader extends JSONConstants {
     private JSONArray getShowArrayJSON(ArrayList<Show> shows) {
         JSONArray showsJSON = new JSONArray();
         for (Show show : shows) {
-            showsJSON.put(getShowJSON(show));
+            showsJSON.put(SHOW_SHOW, getShowJSON(show));
         }
         return showsJSON;
     }
@@ -89,7 +89,7 @@ public class JSONReader extends JSONConstants {
     private JSONArray getTicketArray(ArrayList<Ticket> tickets) {
         JSONArray ticketsArrayJSON = new JSONArray();
         for (Ticket ticket : tickets) {
-            ticketsArrayJSON.put(getTicketJSON(ticket));
+            ticketsArrayJSON.put(TICKET_TICKET, getTicketJSON(ticket));
         }
         return ticketsArrayJSON;
     }
@@ -121,7 +121,7 @@ public class JSONReader extends JSONConstants {
     private JSONArray getRatingArrayJSON(ArrayList<Rating> ratings) {
         JSONArray ratingsJSON = new JSONArray();
         for (Rating rating : ratings) {
-            ratingsJSON.put(getRatingJSON(rating));
+            ratingsJSON.put(RATING, getRatingJSON(rating));
         }
         return ratingsJSON;
     }
@@ -144,7 +144,7 @@ public class JSONReader extends JSONConstants {
     private JSONArray getSeatMatrixJSON(Seat[][] seats) {
         JSONArray seatMatrixJSON = new JSONArray();
         for (Seat[] iSeats : seats) {
-            seatMatrixJSON.put(getSeatArrayJSON(iSeats));
+            seatMatrixJSON.put(SEAT_ARR, getSeatArrayJSON(iSeats));
         }
         return seatMatrixJSON;
     }
@@ -152,7 +152,7 @@ public class JSONReader extends JSONConstants {
     private JSONArray getSeatArrayJSON(Seat[] seats) {
         JSONArray seatsJOSN = new JSONArray();
         for (Seat seat : seats) {
-            seatsJOSN.put(getSeatJSON(seat));
+            seatsJOSN.put(SEAT_SEAT, getSeatJSON(seat));
         }
         return seatsJOSN;
     }
