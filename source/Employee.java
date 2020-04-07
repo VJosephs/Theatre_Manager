@@ -3,6 +3,8 @@ import java.util.Date;
 
 public class Employee extends User {
     private Theatre location;
+    
+    public Employee() {}
 
     public Employee(String firstName, String lastName, String username, Date birthday, String password) {
         super(firstName, lastName, username, birthday, password);
@@ -35,5 +37,9 @@ public class Employee extends User {
 
     public void setTheatre(Theatre location) {
         this.location = location;
+    }
+    
+    public Theatre getLocation() {
+    	return this.location;
     }
 }

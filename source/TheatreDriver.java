@@ -13,6 +13,7 @@ public class TheatreDriver {
     public static boolean quitter = false;
     public static Scanner keyboard = new Scanner(System.in);
     public static User signedInUser = new User();
+    public static Employee signedInEmployee = new Employee();
 
     public static void main(String[] args) {
 
@@ -162,13 +163,17 @@ public class TheatreDriver {
                     getSignedInUI();
                     break;
                 case 1:
-                    theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
+                   // theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
+                	System.out.println("enter the username of the user to refund");
+                	String username = keyboard.nextLine();
+                	signedInEmployee.refund(username, users);
                     break;
                 case 2:
-                    getRewardPoints();
+                   System.out.println("$" +  signedInEmployee.getLocation().getTicketSales());
                     break;
                 case 3:
-                    reader.writeToFile(); //TODO move this to the right place
+                    //reader.writeToFile(); //TODO move this to the right place
+                	
                     break;
 
                 case 4:
@@ -197,8 +202,10 @@ public class TheatreDriver {
     }
 
     public static int createAccount() {
+    	keyboard.nextLine();
     	System.out.println("Are you an Employee?(Answer 'yes' or 'no'"); 
     	String emp = keyboard.nextLine();	
+    	
     	if(emp.equalsIgnoreCase("yes")) {
     		System.out.println("What theatre do you work at?(please choose the number)");
     		printTheatres();
@@ -226,6 +233,7 @@ public class TheatreDriver {
             System.out.println("**     Logging you in.     **");
             System.out.println();
             users.add(user);
+            signedInEmployee = user;
             getSignedInUI();
             return 1;
     	}
@@ -253,12 +261,69 @@ public class TheatreDriver {
         System.out.println();
         getSignedInUI();
         users.add(user);
+        signedInUser = user;
         return 2;
     	}
     }
+    
+    public static Date getShowtime() {
+         System.out.println("When is the show time? mm/dd/yy");
+         String birthDay = keyboard.nextLine();
+         Date retDate;
+
+         if (birthDay.matches("[0-9]{2}([/\\-])[0-9]{2}([/\\-])[0-9]{2,}")) {
+             String[] birthDayParts = birthDay.split("[/\\-]");
+             int month = Integer.parseInt(birthDayParts[0]);
+             int day = Integer.parseInt(birthDayParts[1]);
+             int year = Integer.parseInt(birthDayParts[2]);
+
+             switch (month) {
+                 case 2:
+                     month = Calendar.FEBRUARY;
+                     break;
+                 case 3:
+                     month = Calendar.MARCH;
+                     break;
+                 case 4:
+                     month = Calendar.APRIL;
+                     break;
+                 case 5:
+                     month = Calendar.MAY;
+                     break;
+                 case 6:
+                     month = Calendar.JUNE;
+                     break;
+                 case 7:
+                     month = Calendar.JULY;
+                     break;
+                 case 8:
+                     month = Calendar.AUGUST;
+                     break;
+                 case 9:
+                     month = Calendar.SEPTEMBER;
+                     break;
+                 case 10:
+                     month = Calendar.OCTOBER;
+                     break;
+                 case 11:
+                     month = Calendar.NOVEMBER;
+                     break;
+                 case 12:
+                     month = Calendar.DECEMBER;
+                     break;
+                 default:
+                     month = Calendar.JANUARY;
+
+             }
+             retDate = new Date(year, month, day);
+         } else {
+             retDate = getDate();
+         }
+         return retDate;
+    }
 
     public static Date getDate() {
-        System.out.println("Enter your date of birth mm/dd/yy");
+   	    System.out.println("Enter your date of birth mm/dd/yy");
         String birthDay = keyboard.nextLine();
         Date retDate;
 
@@ -375,6 +440,43 @@ public class TheatreDriver {
     public static void printTheatres() {
     	for(int i = 0; i < theatres.size()-1; i++) {
     		System.out.println(i + ": " + theatres.get(i).toString());
+    	}
+    }
+    
+    public static void addNewShow() {
+    	Theatre theatre = signedInEmployee.getLocation();
+    	System.out.println("What type of show is it?(Enter the Number)");
+    	System.out.println("1. Movie");
+    	System.out.println("2. Concert");
+    	System.out.println("3. Play");
+    	int choice = keyboard.nextInt();
+    	System.out.println("What is the name of the play?");
+    	String name = keyboard.nextLine();
+    	System.out.println("Give a Description of the show.");
+    	String desc = keyboard.nextLine();
+    	System.out.println("What Genre is it?");
+    	String genre = keyboard.nextLine();
+    	Date showTime = getShowtime();
+    	System.out.println("What is the price of admission(Enter just a number)");
+    	double price = keyboard.nextDouble();
+    	if(choice == 1) {
+    		System.out.println("What is the age rating for the Movie?");
+    		String ageRating = keyboard.nextLine();
+    		Movie movie = new Movie(name, desc, genre, ageRating, showTime, theatre.getAddress(), price);
+    		theatre.addShow(movie);
+    	}
+    	else if(choice == 2) {
+    		System.out.println("What is the age rating for the Concert?");
+    		String ageRating = keyboard.nextLine();
+    		Concert concert = new Concert(name, desc, genre, ageRating, showTime, theatre.getAddress(), price);
+    		theatre.addShow(concert);
+    	}
+    	
+    	else if (choice == 3) {
+    		System.out.println("What is the age rating for the Play?");
+    		String ageRating = keyboard.nextLine();
+    		Play play = new Play(name, desc, genre, ageRating, showTime, theatre.getAddress(), price);
+    		theatre.addShow(play);
     	}
     }
 
