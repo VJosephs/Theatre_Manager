@@ -126,8 +126,8 @@ public class TheatreDriver {
     public static void EmployeeUI() {
         while (!quitter) {
             getEmployeeUI();
-            keyboard.nextLine();
             int choice = keyboard.nextInt();
+            keyboard.nextLine();
             switch (choice) {
                 case 0:
                     getEmployeeUI();

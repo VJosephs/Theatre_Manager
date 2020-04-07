@@ -1,10 +1,10 @@
-import java.util.ArrayList;
-import java.io.IOException;
-import java.io.FileWriter;
-import java.util.Date;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class JSONWriter extends JSONConstants {
     private ArrayList<User> users;
@@ -74,9 +74,12 @@ public class JSONWriter extends JSONConstants {
         showJSON.put(SHOW_SHOW_TIME, getDateJSON(show.getShowTime()));
         showJSON.put(SHOW_PRICE, show.getPrice());
         showJSON.put(SHOW_NAME, show.getName());
-        showJSON.put(SHOW_CAST, getStringArrayJSON(show.getCast()));
-        showJSON.put(SHOW_RATINGS, getRatingArrayJSON(show.getRatings()));
-        showJSON.put(SHOW_PURCHASED_TICKETS, getTicketArray(show.getPurchasedTickets()));
+        if(show.getCast() != null)
+            showJSON.put(SHOW_CAST, getStringArrayJSON(show.getCast()));
+        if(show.getRatings() != null)
+            showJSON.put(SHOW_RATINGS, getRatingArrayJSON(show.getRatings()));
+        if(show.getPurchasedTickets() != null)
+            showJSON.put(SHOW_PURCHASED_TICKETS, getTicketArray(show.getPurchasedTickets()));
         return showJSON;
     }
 
@@ -99,7 +102,8 @@ public class JSONWriter extends JSONConstants {
     private JSONArray getStringArrayJSON(ArrayList<String> strings) {
         JSONArray stringsJSON = new JSONArray();
         for (String s : strings) {
-            stringsJSON.put(s);
+            if(s != null)
+                stringsJSON.put(s);
         }
         return stringsJSON;
     }
