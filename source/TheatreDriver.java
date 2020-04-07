@@ -22,51 +22,7 @@ public class TheatreDriver {
         System.out.println("******************************************************************");
         System.out.println();
         getUnsignedInUI();
-        while (!quitter) {
-
-            int choice = keyboard.nextInt();
-            switch (choice) {
-                case 0:
-                    getUnsignedInUI();
-                    break;
-                case 1:
-                    int i = createAccount();
-                    if (i == 1)
-                        EmployeeUI();
-                    else if (i == 2)
-                        signedInUI();
-                    break;
-                case 2:
-                    System.out.println("Enter Username: ");
-                    String un = keyboard.nextLine();
-                    keyboard.nextLine();
-                    System.out.println("Enter password");
-                    String pw = keyboard.nextLine();
-                    if (!signIn(un, pw)) {
-                        getUnsignedInUI();
-                    } else {
-                        signedInUI();
-                    }
-                    break;
-                case 3:
-                    printTheatres();
-                case 4:
-                    break;
-                case 5:
-                    ConcessionMenu();
-                    break;
-                case 6:
-                    printSystemSupport();
-                    break;
-                case 7:
-                    printGoodbye();
-                    quitter = true;
-                    break;
-            }
-            System.out.println();
-
-        }
-
+        unsignedInUI();
 
     }
 
@@ -95,6 +51,8 @@ public class TheatreDriver {
                     printSystemSupport();
                     break;
                 case 6:
+                	signOut();
+                case 7:
                     quitter = true;
                     printGoodbye();
                     break;
@@ -180,6 +138,8 @@ public class TheatreDriver {
                     printSystemSupport();
                     break;
                 case 6:
+                	signOut();
+                case 7:
                     quitter = true;
                     printGoodbye();
                     break;
@@ -483,5 +443,56 @@ public class TheatreDriver {
         reader.writeToFile();
     }
     
+    public static void signOut() {
+    	signedInUser = null;
+    	signedInEmployee = null;
+    	System.out.println("**     Signing you out     **");
+    	unsignedInUI();
+    }
+    
+    public static void unsignedInUI(){
+    	while (!quitter) {
 
-}
+            int choice = keyboard.nextInt();
+            switch (choice) {
+                case 0:
+                    getUnsignedInUI();
+                    break;
+                case 1:
+                    int i = createAccount();
+                    if (i == 1)
+                        EmployeeUI();
+                    else if (i == 2)
+                        signedInUI();
+                    break;
+                case 2:
+                    System.out.println("Enter Username: ");
+                    String un = keyboard.nextLine();
+                    keyboard.nextLine();
+                    System.out.println("Enter password");
+                    String pw = keyboard.nextLine();
+                    if (!signIn(un, pw)) {
+                        getUnsignedInUI();
+                    } else {
+                        signedInUI();
+                    }
+                    break;
+                case 3:
+                    printTheatres();
+                case 4:
+                    break;
+                case 5:
+                    ConcessionMenu();
+                    break;
+                case 6:
+                    printSystemSupport();
+                    break;
+                case 7:
+                    printGoodbye();
+                    quitter = true;
+                    break;
+            }
+            System.out.println();
+
+        }
+    }
