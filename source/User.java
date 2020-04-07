@@ -16,13 +16,12 @@ public class User {
     public User() {
     }
 
-        /**
-     *
-     * @param firstName      actual first name of the user for account
-     * @param lastname       actual last name of the user for account
-     * @param username       made up name for the users account  
-     * @param bithday        actual birthday of the user to verify age restrictions
-     * @param password       String to keep the account protected and private
+    /**
+     * @param firstName actual first name of the user for account
+     * @param lastName  actual last name of the user for account
+     * @param username  made up name for the users account
+     * @param birthday  actual birthday of the user to verify age restrictions
+     * @param password  String to keep the account protected and private
      */
     public User(String firstName, String lastName, String username, Date birthday, String password) {
         this.firstName = firstName;
@@ -33,11 +32,10 @@ public class User {
         this.RewardPoints = 0;
     }
 
-        /**
-     *
-     * @param show      name of the show
-     * @param location  location of the theater that the show is at
-     * @param price     Price of the ticket
+    /**
+     * @param show     name of the show
+     * @param location location of the theater that the show is at
+     * @param price    Price of the ticket
      */
     public void purchaseTicket(String show, String location, double price) {
         Ticket ticket = new Ticket(show, location, price);

@@ -7,10 +7,9 @@ public class Searcher {
     private ArrayList<Theatre> theatres;
     private ArrayList<Show> shows;
 
-        /**
-     *
-     * @param theaters      all the theaters that host events
-     * @param shows         all the shows that users can by tickets for 
+    /**
+     * @param theatres all the theaters that host events
+     * @param shows    all the shows that users can by tickets for
      */
     public Searcher(ArrayList<Theatre> theatres, ArrayList<Show> shows) {
         setTheatres(theatres);
@@ -36,9 +35,8 @@ public class Searcher {
         return retShows;
     }
 
-        /**
-     *
-     * @param name      Used as the name of a show 
+    /**
+     * @param name Used as the name of a show
      */
     public ArrayList<Show> searchShowNames(String name) {
         ArrayList<Show> retShows = new ArrayList<>();
@@ -58,9 +56,8 @@ public class Searcher {
         return retTheatres;
     }
 
-        /**
-     *
-     * @param castMember    used to search for a specific actor in a film or event
+    /**
+     * @param castMember used to search for a specific actor in a film or event
      */
     public ArrayList<Show> searchCast(String castMember) {
         ArrayList<Show> retShows = new ArrayList<>();
@@ -72,11 +69,9 @@ public class Searcher {
         return retShows;
     }
 
-    // TODO probably fix this
-    
-        /**
-     *
-     * @param type     Used to determine if the search is for movie,concert,or play
+
+    /**
+     * @param type Used to determine if the search is for movie,concert,or play
      */
     public ArrayList<Show> searchType(String type) {
         ArrayList<Show> retShows = new ArrayList<>();

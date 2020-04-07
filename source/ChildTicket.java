@@ -9,7 +9,6 @@ public class ChildTicket extends Ticket {
      * @param location   location of the show that the ticket is for
      * @param show       The name of the event or show that the ticket was purchased for
      */
-     */
     public ChildTicket(String show, String location, double price) {
         super(show, location, price);
     }

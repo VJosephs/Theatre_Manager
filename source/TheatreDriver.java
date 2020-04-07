@@ -57,7 +57,7 @@ public class TheatreDriver {
                     printGoodbye();
                     break;
                 case 8:
-                	reader.writeToFile();
+                    reader.writeToFile();
             }
             System.out.println();
             getSignedInUI();
@@ -148,8 +148,8 @@ public class TheatreDriver {
                     quitter = true;
                     printGoodbye();
                     break;
-                case 8: 
-                	reader.writeToFile();
+                case 8:
+                    reader.writeToFile();
             }
             System.out.println();
             getSignedInUI();
@@ -495,7 +495,7 @@ public class TheatreDriver {
                     quitter = true;
                     break;
                 case 8:
-                	reader.writeToFile();
+                    reader.writeToFile();
             }
             System.out.println();
 

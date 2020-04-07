@@ -10,9 +10,9 @@ public class Employee extends User {
      * Creates a new show
      *
      * @param firstName      actual first name of the user for account
-     * @param lastname       actual last name of the user for account
+     * @param lastName       actual last name of the user for account
      * @param username       made up name for the users account  
-     * @param bithday        actual birthday of the user to verify age restrictions
+     * @param birthday        actual birthday of the user to verify age restrictions
      * @param password       String to keep the account protected and private
      */
 

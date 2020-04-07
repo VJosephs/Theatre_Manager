@@ -12,11 +12,10 @@ public class Ticket {
     private String location;
     private double price;
 
-        /**
-     *
-     * @param show      name of show the ticket is for
-     * @param location  the location of the theater the ticket is for
-     * @param price     price of the ticket
+    /**
+     * @param show     name of show the ticket is for
+     * @param location the location of the theater the ticket is for
+     * @param price    price of the ticket
      */
     public Ticket(String show, String location, double price) {
         this.show = show;
@@ -54,10 +53,10 @@ public class Ticket {
     /**
      * Prints the name and time of the show the ticket is for
      */
-      public String toString() {
+    public String toString() {
         return " :: Thank you for your purchase to see " + getShow() + ":: \n"
-        		+ ":: The show you have paid to see will be at " + getLocation() +   ". And finally you paid" + getPrice() + "for your ticket! :: \n"
-        		+ " :: Thanks again for purchasing at THE_247_PROJECT. Have a nice day and call (***)-***-**** if you have any issues!";
+                + ":: The show you have paid to see will be at " + getLocation() + ". And finally you paid" + getPrice() + "for your ticket! :: \n"
+                + " :: Thanks again for purchasing at THE_247_PROJECT. Have a nice day and call (***)-***-**** if you have any issues!";
     }
 
 

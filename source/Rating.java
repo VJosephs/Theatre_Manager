@@ -6,12 +6,11 @@ public class Rating {
     private String userName;
     private String comment;
     private double rating;
-    
-        /**
-     *
-     * @param rating      taken 1 out of 5 to determine how entertaining the movie was
-     * @param username    the name to know which account is rating
-     * @param comment     comment for the user to make for why the rating is what it is
+
+    /**
+     * @param rating   taken 1 out of 5 to determine how entertaining the movie was
+     * @param userName the name to know which account is rating
+     * @param comment  comment for the user to make for why the rating is what it is
      */
 
     public Rating(double rating, String userName, String comment) {
@@ -24,9 +23,8 @@ public class Rating {
         this.comment = comment;
     }
 
-        /**
-     *
-     * @param rating     1 out of 5 to know how entertaingin the movie was
+    /**
+     * @param rating 1 out of 5 to know how entertaingin the movie was
      */
     private void setRating(double rating) {
         if (rating == 1 || rating == 1.5 || rating == 2 || rating == 2.5 || rating == 3 || rating == 3.5 || rating == 4 || rating == 4.5 || rating == 5) {
@@ -39,6 +37,7 @@ public class Rating {
             this.rating = Math.round(rating);
         }
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -71,6 +70,7 @@ public class Rating {
             return other.userName == null;
         } else return userName.equals(other.userName);
     }
+
     public String getUserName() {
         return userName;
     }
