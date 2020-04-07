@@ -173,7 +173,7 @@ public class TheatreDriver {
                     break;
                 case 3:
                     //reader.writeToFile(); //TODO move this to the right place
-                	
+                	addNewShow();
                     break;
 
                 case 4:
