@@ -51,7 +51,7 @@ public class TheatreDriver {
                     printSystemSupport();
                     break;
                 case 6:
-                	signOut();
+                    signOut();
                 case 7:
                     quitter = true;
                     printGoodbye();
@@ -138,7 +138,7 @@ public class TheatreDriver {
                     printSystemSupport();
                     break;
                 case 6:
-                	signOut();
+                    signOut();
                 case 7:
                     quitter = true;
                     printGoodbye();
@@ -202,13 +202,13 @@ public class TheatreDriver {
         System.out.println();
         System.out.println("**     Logging you in.     **");
         System.out.println();
-        if(theatres.size() > 0) {
+        if (theatres.size() > 0) {
             System.out.println("What theatre do you work at?(please choose the number)");
             printTheatres();
             int choice = keyboard.nextInt();
             Theatre location = theatres.get(choice);
             user.setTheatre(location);
-        }  
+        }
         users.add(user);
         reader.writeToFile();
         signedInUser = user;
@@ -442,16 +442,16 @@ public class TheatreDriver {
         }
         reader.writeToFile();
     }
-    
+
     public static void signOut() {
-    	signedInUser = null;
-    	signedInEmployee = null;
-    	System.out.println("**     Signing you out     **");
-    	unsignedInUI();
+        signedInUser = null;
+        signedInEmployee = null;
+        System.out.println("**     Signing you out     **");
+        unsignedInUI();
     }
-    
-    public static void unsignedInUI(){
-    	while (!quitter) {
+
+    public static void unsignedInUI() {
+        while (!quitter) {
 
             int choice = keyboard.nextInt();
             switch (choice) {
@@ -496,3 +496,4 @@ public class TheatreDriver {
 
         }
     }
+}
