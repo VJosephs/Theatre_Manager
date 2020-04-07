@@ -1,1 +1,98 @@
-[{"theatreAddress":"1","theatreLAYOUT":{"layoutMatrix":[[{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"}],[{"seatType":"HANDICAP"},{"seatType":"HANDICAP"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"}],[{"seatType":"HANDICAP"},{"seatType":"HANDICAP"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"}],[{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"}],[{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"},{"seatType":"blank"}]],"layoutName":"1"},"theatreShows":[],"theatreRatings":[],"theatreName":"111"}]
+[
+  {
+    "theatreAddress": "1",
+    "theatreLAYOUT": {
+      "layoutMatrix": [
+        [
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          }
+        ],
+        [
+          {
+            "seatType": "HANDICAP"
+          },
+          {
+            "seatType": "HANDICAP"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          }
+        ],
+        [
+          {
+            "seatType": "HANDICAP"
+          },
+          {
+            "seatType": "HANDICAP"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          }
+        ],
+        [
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          }
+        ],
+        [
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          },
+          {
+            "seatType": "blank"
+          }
+        ]
+      ],
+      "layoutName": "1"
+    },
+    "theatreShows": [],
+    "theatreRatings": [],
+    "theatreName": "111"
+  }
+]
