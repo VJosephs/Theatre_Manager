@@ -14,16 +14,21 @@ public class Ticket {
     private String show;
     private String location;
     private double price;
+    private Show s;
 
     /**
      * @param show     name of show the ticket is for
      * @param location the location of the theater the ticket is for
      * @param price    price of the ticket
      */
-    public Ticket(String show, String location, double price) {
+    public Ticket(String show, String location, double price, Show s) {
         this.show = show;
         this.price = price;
         this.location = location;
+    }
+    
+    public Show getShowObj() {
+    	return this.s;
     }
 
     /**

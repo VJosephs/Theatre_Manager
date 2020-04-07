@@ -45,8 +45,9 @@ public class User {
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
     }
 
-    public void giveRating(double rating, String comment) {
+    public Rating getRating(double rating, String comment) {
         // TODO fill out later
+    	return new Rating(rating, comment, this.username);
     }
 
     public ShoppingCart getCurrentCart() {
@@ -152,6 +153,11 @@ public class User {
     public ArrayList<Ticket> getPastTransactions() {
         return pastTransactions;
     }
+    public void getPastTransactionsMenu() {
+        for(int i = 0; i < getPastTransactions().size()-1; i++) {
+        	System.out.println(i+". " + getPastTransactions().get(i));
+        }
+    }
 
     public ArrayList<Ticket> getCurrentTransactions() {
         return currentTransactions;
@@ -164,4 +170,5 @@ public class User {
     public String getBirthdayString() {
         return "" + birthday.getMonth() + "-" + birthday.getDate() + "-" + birthday.getYear();
     }
+     
 }

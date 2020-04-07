@@ -111,5 +111,7 @@ public class Show implements Comparable<Show> {
         return price * ticketSold;
     }
 
-
+    public void recieveRating(Rating rating) {
+    	ratings.add(rating);
+    }
 }

@@ -60,6 +60,9 @@ public class TheatreDriver {
                     jsonWriter.writeToFile();
                 case 9:
                     load();
+                    break;
+                case 10:
+                	addRating(signedInUser);
             }
             System.out.println();
 
@@ -161,6 +164,7 @@ public class TheatreDriver {
                     break;
                 case 9:
                     load();
+                
             }
             System.out.println();
 
@@ -537,7 +541,7 @@ public class TheatreDriver {
     public static void selectSeats(Theatre t, Show s) {
         String input = "";
         while (!input.equalsIgnoreCase("done")) {
-            Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice());
+            Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice(), s);
             if (signedInUser != null) {
                 signedInUser.getCart().addTicket(ticket);
             }
@@ -566,6 +570,18 @@ public class TheatreDriver {
         t.getLayout().printLayout();
         return s;
     }
-
-
+    
+    public static void addRating(User user) {
+    	System.out.println("Which show that you have attened would you like to rate? (select number)");
+    	user.getPastTransactionsMenu();
+    	int choice = keyboard.nextInt();
+    	Show show = user.getPastTransactions().get(choice).getShowObj();
+    	System.out.println("What would you rate the show out of 5?(You can use whole numbers or half numbers, i.e. 4.5)");
+    	double rating = keyboard.nextDouble();
+    	System.out.println("Leave a comment.(you can press enter to skip if you have no comment)");
+    	String comment = "";
+    	comment = keyboard.nextLine();
+    	Rating rate = new Rating(rating, comment, user.getUsername());
+    	show.recieveRating(rate);
+    }
 }
