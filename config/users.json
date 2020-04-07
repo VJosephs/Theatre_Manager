@@ -1,13 +1,1 @@
-[
-  {
-    "userUsername": "1",
-    "userPassword": "1",
-    "userPastTransactions": [],
-    "userShoppingCart": [],
-    "userCurrentTransactions": [],
-    "userLastName": "1",
-    "userRewardsPoints": 0,
-    "userFirstName": "1",
-    "userBirthday": "10-11-11"
-  }
-]
+[{"userUsername":"john","userPassword":"password","userPastTransactions":[],"userShoppingCart":[],"userCurrentTransactions":[],"userLastName":"smith","userRewardsPoints":0,"userFirstName":"john","userBirthday":"9-10-40"}]

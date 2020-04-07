@@ -222,7 +222,9 @@ public class TheatreDriver {
         System.out.println("What is your password?");
         String password = keyboard.nextLine();
         getSignedInUI();
-        return new User(firstName, lastName, username, birthday, password);
+        User user = new User(firstName, lastName, username, birthday, password);
+        reader.writeToFile();
+        return user;
     }
 
     public static void creatEmployee() {
@@ -246,8 +248,9 @@ public class TheatreDriver {
             int choice = keyboard.nextInt();
             Theatre location = theatres.get(choice);
             user.setTheatre(location);
-        }
+        }  
         users.add(user);
+        reader.writeToFile();
         signedInUser = user;
         signedInEmployee = user;
     }
@@ -263,6 +266,7 @@ public class TheatreDriver {
         System.out.println("**     Logging you in.     **");
         System.out.println();
         users.add(user);
+        reader.writeToFile();
         signedInUser = user;
     }
 
@@ -476,6 +480,8 @@ public class TheatreDriver {
             Play play = new Play(name, desc, genre, ageRating, showTime, theatre.getAddress(), price);
             theatre.addShow(play);
         }
+        reader.writeToFile();
     }
+    
 
 }
