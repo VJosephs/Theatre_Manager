@@ -28,8 +28,8 @@ public class TheatreDriver {
     }
 
     public static void signedInUI() {
+        getSignedInUI();
         while (!quitter) {
-
             int choice = keyboard.nextInt();
             switch (choice) {
                 case 0:
@@ -44,7 +44,6 @@ public class TheatreDriver {
                 case 3:
                     //TODO move this to the right place
                     break;
-
                 case 4:
                     ConcessionMenu();
                     break;
@@ -63,7 +62,6 @@ public class TheatreDriver {
                     load();
             }
             System.out.println();
-            getSignedInUI();
 
         }
     }
@@ -127,7 +125,8 @@ public class TheatreDriver {
 
     public static void EmployeeUI() {
         while (!quitter) {
-
+            getEmployeeUI();
+            keyboard.nextLine();
             int choice = keyboard.nextInt();
             switch (choice) {
                 case 0:
@@ -246,7 +245,7 @@ public class TheatreDriver {
 
 
     public static Date getShowtime() {
-        System.out.println("When is the show time? mm/dd/yy");
+        System.out.println("When is the show Date? mm/dd/yy");
         String birthDay = keyboard.nextLine();
         Date retDate;
 
@@ -438,6 +437,7 @@ public class TheatreDriver {
         Date showTime = getShowtime();
         System.out.println("What is the price of admission(Enter just a number)");
         double price = keyboard.nextDouble();
+        keyboard.nextLine();
         if (choice == 1) {
             System.out.println("What is the age rating for the Movie?");
             String ageRating = keyboard.nextLine();
@@ -479,9 +479,9 @@ public class TheatreDriver {
                         signedInUI();
                     break;
                 case 2:
+                    keyboard.nextLine();
                     System.out.println("Enter Username: ");
                     String un = keyboard.nextLine();
-                    keyboard.nextLine();
                     System.out.println("Enter password");
                     String pw = keyboard.nextLine();
                     if (!signIn(un, pw)) {
@@ -506,6 +506,8 @@ public class TheatreDriver {
                     break;
                 case 8:
                     jsonWriter.writeToFile();
+                case 9:
+                    load();
             }
             System.out.println();
 
