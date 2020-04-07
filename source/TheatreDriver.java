@@ -173,7 +173,7 @@ public class TheatreDriver {
             creatEmployee();
             return 1;
         } else {
-            creatAverageUser();
+            createAverageUser();
             return 2;
         }
     }
