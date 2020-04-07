@@ -2,10 +2,13 @@
 
 public class ChildTicket extends Ticket {
 
-    /**
-     * Creates a child ticket for the show
+      /**
+     * Creates a new show
      *
-     * @param show The show that the ticket is for
+     * @param price      Price of the child ticket that was bought
+     * @param location   location of the show that the ticket is for
+     * @param show       The name of the event or show that the ticket was purchased for
+     */
      */
     public ChildTicket(String show, String location, double price) {
         super(show, location, price);
