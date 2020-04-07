@@ -5,6 +5,8 @@ public class Seat {
 
     /**
      * @param type Used to know what type of event the seat is for
+     * @return n/a     its a constructor
+     * @exception  n/a
      */
     public Seat(String type) {
         setType(type);
