@@ -14,22 +14,22 @@ public class Ticket {
     private String show;
     private String location;
     private double price;
-    private Show s;
+
 
     /**
      * @param show     name of show the ticket is for
      * @param location the location of the theater the ticket is for
      * @param price    price of the ticket
      */
-    public Ticket(String show, String location, double price, Show s) {
+    public Ticket(String show, String location, double price) {
         this.show = show;
         this.price = price;
         this.location = location;
     }
-    
-    public Show getShowObj() {
-    	return this.s;
-    }
+    /**
+     * 
+     * @return the show object
+     */
 
     /**
      * Returns the show that the ticket is for
@@ -66,7 +66,11 @@ public class Ticket {
                 + ":: The show you have paid to see will be at " + getLocation() + ". And finally you paid" + getPrice() + "for your ticket! :: \n"
                 + " :: Thanks again for purchasing at THE_247_PROJECT. Have a nice day and call (***)-***-**** if you have any issues!";
     }
-
+    /**
+     * 
+     * @param show the show name
+     * @param str name of the file tickets are saved to 
+     */
     public void print(Show show, String str) {
         String outString = "*************************************************************************\n" +
                 "**                Thank you for your purchase!!!                       **\n" +

@@ -25,7 +25,7 @@ public class TheatreDriver {
         unsignedInUI();
 
     }
-
+    
     public static void signedInUI() {
         getSignedInUI();
         while (!quitter) {
@@ -182,7 +182,10 @@ public class TheatreDriver {
         System.out.println("*              Goodbye!!               *");
         System.out.println("****************************************");
     }
-
+    /**
+     * 
+     * @return the user type created(Employee or general user)
+     */
     public static int createAccount() {
         keyboard.nextLine();
         System.out.println("Are you an Employee?(Answer 'yes' or 'no'");
@@ -196,7 +199,10 @@ public class TheatreDriver {
             return 2;
         }
     }
-
+    /**
+     * 
+     * @return A new User
+     */
     public static User createUser() {
         System.out.println("What is your first name?");
         String firstName = keyboard.nextLine();
@@ -260,7 +266,10 @@ public class TheatreDriver {
         signedInUser = user;
     }
 
-
+    /**
+     * 
+     * @return the show time of a specific show
+     */
     public static Date getShowtime() {
         System.out.println("When is the show Date? mm/dd/yy");
         String birthDay = keyboard.nextLine();
@@ -316,7 +325,10 @@ public class TheatreDriver {
         }
         return retDate;
     }
-
+    /**
+     * 
+     * @return the User's selected date
+     */
     public static Date getDate() {
         System.out.println("Enter your date of birth mm/dd/yy");
         String birthDay = keyboard.nextLine();
@@ -372,7 +384,11 @@ public class TheatreDriver {
         }
         return retDate;
     }
-
+    /**
+     * 
+     * @param input from user
+     * @return layout of a theatre
+     */
     public static Theatre createNewTheatreUI(Scanner input) {
         input.nextLine();
         Layout layout;
@@ -393,7 +409,11 @@ public class TheatreDriver {
         }
         return new Theatre(name, address, layout);
     }
-
+    /**
+     * 
+     * @param input
+     * @return Layout of the theatre
+     */
     public static Layout createNewLayout(Scanner input) {
         System.out.println("What will be the name of this layout?");
         String name = input.nextLine();
@@ -401,7 +421,11 @@ public class TheatreDriver {
         layout.makeLayout(input);
         return layout;
     }
-
+    /**
+     * 
+     * @param name
+     * @return the layout if found 
+     */
     public static Layout findLayout(String name) {
         for (Layout l : layouts) {
             if (l.getName().equalsIgnoreCase(name))
@@ -409,7 +433,12 @@ public class TheatreDriver {
         }
         return null;
     }
-
+    /**
+     * 
+     * @param username 
+     * @param password
+     * @return true if user is found, and is signed in
+     */
     public static boolean signIn(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -422,7 +451,7 @@ public class TheatreDriver {
         System.out.println("!!!!!!!!!!!!!!!!!!!");
         return false;
     }
-
+    
     public static void getRewardPoints() {
 
         System.out.println("**************************************");
@@ -548,16 +577,24 @@ public class TheatreDriver {
         selectSeats(t, t.getShows().get(showNum));
         getSignedInUI();
     }
-
+    /**
+     * 
+     * @param t prints all shows that theatre has
+     */
     public static void printShows(Theatre t) {
         for (Show s : t.getShows())
             System.out.println(s.getName());
     }
-
+    
+    /**
+     * 
+     * @param t the theatre the show is in
+     * @param s	the Show the layout is in 
+     */
     public static void selectSeats(Theatre t, Show s) {
         String input = "";
         while (!input.equalsIgnoreCase("done")) {
-            Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice(), s);
+            Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice());
             if (signedInUser != null) {
                 signedInUser.getCart().addTicket(ticket);
                 signedInUser.addToPastTransactions(ticket);
@@ -571,7 +608,12 @@ public class TheatreDriver {
             ticket.print(s, seatString);
         }
     }
-
+    /**
+     * 
+     * @param s The seat to be taken
+     * @param t The theatre
+     * @return the string of which sest was taken
+     */
     public static String takeSeat(String s, Theatre t) {
         while (!s.matches("[A-Za-z][0-9]+")) {
             if (s.equalsIgnoreCase("done")) {

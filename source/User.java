@@ -44,20 +44,26 @@ public class User {
         cart.addTicket(ticket);
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
     }
-
+    /**
+     * 
+     * @param rating  rating the user left 
+     * @param comment comment the user left
+     * @return user's rating
+     */
     public Rating getRating(double rating, String comment) {
         // TODO fill out later
     	return new Rating(rating, comment, this.username);
     }
-
+    /** 
+     * 
+     * @return user's shopping cart
+     */
     public ShoppingCart getCurrentCart() {
         return cart;
     }
-
-    public void completePurchase() {
-        // TODO fill out later
-    }
-
+    /**
+     * @return the user as a string
+     */
     @Override
     public String toString() {
         return "User [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", birthday="
@@ -65,7 +71,9 @@ public class User {
                 + RewardPoints + ", pastTransactions=" + pastTransactions + "]";
     }
 
-
+    /**
+     * @return the hash code of a User
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -78,7 +86,9 @@ public class User {
         return result;
     }
 
-
+    /**
+     * return boolean on whether the user is equal to another user
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -112,24 +122,36 @@ public class User {
             return other.username == null;
         } else return username.equals(other.username);
     }
-
+    /**
+     * 
+     * @return the user's username 
+     */
     public String getUsername() {
         return this.username;
     }
-
+    /**
+     * 
+     * @return the user's password
+     */
     public String getPassword() {
         return this.password;
     }
 
-
+    /**
+     * 
+     * @return the user's reward point balance
+     */
     public int getRewardsPoints() {
         return this.RewardPoints;
     }
-
+    /**
+     * 
+     * @param funds the amount to be added to reward points
+     */
     public void addRewardPoints(int funds) {
         RewardPoints += funds;
     }
-
+    
     public void refundTicket() {
         int ind = pastTransactions.size() - 1;
         Ticket ticket = pastTransactions.get(ind);
@@ -137,19 +159,31 @@ public class User {
         addRewardPoints(funds);
         pastTransactions.remove(ind);
     }
-
+    /**
+     * 
+     * @return the User's first name 
+     */
     public String getFirstName() {
         return firstName;
     }
-
+    /** 
+     * 
+     * @return the user's last name
+     */
     public String getLastName() {
         return lastName;
     }
-
+    /**
+     * 
+     * @return user's reward points
+     */
     public int getRewardPoints() {
         return RewardPoints;
     }
-
+    /**
+     * 
+     * @return the user's past transactions
+     */
     public ArrayList<Ticket> getPastTransactions() {
         return pastTransactions;
     }
@@ -158,18 +192,31 @@ public class User {
         	System.out.println(i+". " + getPastTransactions().get(i).getShow());
         }
     }
-
+    /**
+     * 
+     * @return the User's current transaction
+     */
     public ArrayList<Ticket> getCurrentTransactions() {
         return currentTransactions;
     }
-
+    /**
+     * 
+     * @return User's current cart
+     */
     public ShoppingCart getCart() {
         return cart;
     }
-
+    /**
+     * 
+     * @return the user's birthday as a String
+     */
     public String getBirthdayString() {
         return "" + birthday.getMonth() + "-" + birthday.getDate() + "-" + birthday.getYear();
     }
+    /**
+     * 
+     * @param ticket to be added to past transactions
+     */
      public void addToPastTransactions(Ticket ticket) {
     	 this.pastTransactions.add(ticket);
      }

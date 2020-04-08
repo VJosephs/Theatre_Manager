@@ -33,28 +33,46 @@ public class Show implements Comparable<Show> {
         this.ageRating = ageRating;
         this.genre = genre;
     }
-
+    /**
+     * 
+     * @return show name
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * 
+     * @return show genre
+     */
     public String getGenre() {
         return genre;
     }
-
+    /**
+     * 
+     * @return show description
+     */
     public String getDescription() {
 
         return description;
     }
-
+    /**
+     * 
+     * @return show rating
+     */
     public String getShowRating() {
         return ageRating;
     }
-
+    /**
+     * 
+     * @return show time
+     */
     public Date getShowTime() {
         return showTime;
     }
-
+    /**
+     * 
+     * @return show price
+     */
     public double getPrice() {
         return price;
     }
@@ -71,29 +89,47 @@ public class Show implements Comparable<Show> {
         }
         return sum / ratings.size();
     }
-
+    /**
+     * 
+     * @return show location
+     */
     public String getLocation() {
         return location;
     }
-
+    /**
+     * 
+     * @return show cast
+     */
     public ArrayList<String> getCast() {
         return cast;
     }
-
+    /**
+     * 
+     * @return ArrayList of all ratings for the show
+     */
     public ArrayList<Rating> getRatings() {
         return ratings;
     }
-
+    /**
+     * 
+     * @return Arraylist of seats taken so far
+     */
     public ArrayList<Ticket> getPurchasedTickets() {
         return purchasedTickets;
     }
 
-
+    /**
+     * @param Show to be compared
+     * @return boolean if the ratings of the are equal
+     */
     @Override
     public int compareTo(Show o) {
         return Double.compare(this.getAvgRating(), o.getAvgRating());
     }
-
+    /**
+     * 
+     * @param rating to be removed
+     */
     public void removeShowRating(Rating rating) {
         for (Rating rating1 : ratings) {
             if (rating1.equals(rating)) {
@@ -101,12 +137,18 @@ public class Show implements Comparable<Show> {
             }
         }
     }
-
+    /**
+     * 
+     * @return the dollar amount as a double of tickets sold
+     */
     public double getTicketSale() {
         int ticketSold = purchasedTickets.size() + 1;
         return price * ticketSold;
     }
-
+    /**
+     * 
+     * @param rating to be added to the show
+     */
     public void recieveRating(Rating rating) {
     	this.ratings.add(rating);
     }

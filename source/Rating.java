@@ -38,7 +38,9 @@ public class Rating {
             this.rating = Math.round(rating);
         }
     }
-
+    /**
+     * @return hashcode of the Rating
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -50,7 +52,10 @@ public class Rating {
         result = prime * result + ((userName == null) ? 0 : userName.hashCode());
         return result;
     }
-
+    /**
+     * @param obj object to be compared
+     * @return boolean on whether the obects are equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -83,7 +88,9 @@ public class Rating {
     public double getRating() {
         return rating;
     }
-
+    /**
+     * @return comment as a String
+     */
     public String toString() {
         return userName + "gave this show a rating of:" + rating + " and said, " + comment;
     }
