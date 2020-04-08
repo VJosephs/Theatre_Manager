@@ -35,13 +35,13 @@ public class TheatreDriver {
                     getSignedInUI();
                     break;
                 case 1:
-                    theatres.add(createNewTheatreUI(keyboard)); //TODO move this to the right place
+                	buyTicket();
                     break;
                 case 2:
-                    getRewardPoints();
+                	addRating();
                     break;
                 case 3:
-                    buyTicket();
+                	getRewardPoints();
                     break;
                 case 4:
                     ConcessionMenu();
@@ -60,8 +60,7 @@ public class TheatreDriver {
                 case 9:
                     load();
                     break;
-                case 10:
-                	addRating();
+                	
             }
             System.out.println();
 
@@ -88,41 +87,48 @@ public class TheatreDriver {
 
 
     public static void getUnsignedInUI() {
-        System.out.println("To get this menu again press 0");
-        System.out.println("To create an account enter 1");
-        System.out.println("To sign in enter 2");
-        System.out.println("To find a theatre enter 3");
-        System.out.println("To view your Tickets enter 4");
-        System.out.println("To view concessions enter 5");
-        System.out.println("For support enter 6");
-        System.out.println("To quit enter 7");
-        System.out.println("To save enter 8");
-        System.out.println("To Load enter 9");
-
+    	System.out.println("*****************************************");
+        System.out.println("*     To get this menu again press 0    *");
+        System.out.println("*     To create an account enter 1      *");
+        System.out.println("*          To sign in enter 2           *");
+        System.out.println("*         To view all theaters 3        *");
+        System.out.println("*      To view concessions enter 4      *");
+        System.out.println("*      To purchase a ticket enter 5     *");
+        System.out.println("*       For System support enter 6      *");
+        System.out.println("*             To quit enter 7           *");
+        System.out.println("*             To save enter 8           *");
+        System.out.println("*             To Load enter 9           *");
+        System.out.println("*****************************************");
     }
 
     public static void getSignedInUI() {
-        System.out.println("To get this menu again enter 0");
-        System.out.println("To find a theatre enter 1");
-        System.out.println("To view your rewards points enter 2");
-        System.out.println("To buy tickets enter 3");
-        System.out.println("To view concessions enter 4");
-        System.out.println("For support enter 5");
-        System.out.println("To sign out enter 6");
-        System.out.println("To save enter 8");
-        System.out.println("To Load enter 9");
+    	System.out.println("*****************************************");
+        System.out.println("*     To get this menu again enter 0    *");
+        System.out.println("*         To buy tickets enter 1        *");
+        System.out.println("*       To leave a review enter 2       *");
+        System.out.println("*         To buy tickets enter 3        *");
+        System.out.println("*      To view concessions enter 4      *");
+        System.out.println("*          For support enter 5          *");
+        System.out.println("*          To sign out enter 6          *");
+        System.out.println("*            To quit enter 7            *");
+        System.out.println("*            To save enter 8            *");
+        System.out.println("*            To Load enter 9            *");
+        System.out.println("*****************************************");
     }
 
     public static void getEmployeeUI() {
-        System.out.println("To get this menu again enter 0");
-        System.out.println("To perform a refund enter 1");
-        System.out.println("To view ticket sales enter 2");
-        System.out.println("To add a show enter 3");
-        System.out.println("To view concessions enter 4");
-        System.out.println("To add a theatre enter 5");
-        System.out.println("To sing out enter 6");
-        System.out.println("To save enter 8");
-        System.out.println("To Load enter 9");
+    	System.out.println("*****************************************");
+        System.out.println("*    To get this menu again enter 0     *");
+        System.out.println("*      To perform a refund enter 1      *");
+        System.out.println("*     To view ticket sales enter 2      *");
+        System.out.println("*         To add a show enter 3         *");
+        System.out.println("*      To view concessions enter 4      *");
+        System.out.println("*       To add a theatre enter 5        *");
+        System.out.println("*          To sign out enter 6          *");
+        System.out.println("*            To quit enter 7            *");
+        System.out.println("*            To save enter 8            *");
+        System.out.println("*            To Load enter 9            *");
+        System.out.println("*****************************************");
     }
 
     public static void EmployeeUI() {
@@ -412,7 +418,7 @@ public class TheatreDriver {
     public static void getRewardPoints() {
 
         System.out.println("**************************************");
-        System.out.println("You have " + signedInUser.getRewardsPoints() + " rewards points");
+        System.out.println("You have       " + signedInUser.getRewardsPoints() + " rewards points");
         System.out.println("**************************************");
 
     }
@@ -462,7 +468,9 @@ public class TheatreDriver {
     public static void signOut() {
         signedInUser = null;
         signedInEmployee = null;
+        System.out.println("*****************************");
         System.out.println("**     Signing you out     **");
+        System.out.println("*****************************");
         unsignedInUI();
     }
 
@@ -496,6 +504,7 @@ public class TheatreDriver {
                 case 3:
                     printTheatres();
                 case 4:
+                	ConcessionMenu();
                     break;
                 case 5:
                     buyTicket();
@@ -590,6 +599,7 @@ public class TheatreDriver {
     					comment = keyboard.nextLine();
     					Rating rate = new Rating(rating, theatre.getName(), comment);
     					show.recieveRating(rate);
+    					System.out.println("comment added");
     				}
     				
     			}
