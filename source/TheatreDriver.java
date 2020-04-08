@@ -222,9 +222,13 @@ public class TheatreDriver {
         System.out.println("What is your password?");
         String password = keyboard.nextLine();
         Employee user = new Employee(firstName, lastName, username, birthday, password);
-        System.out.println("**   Account Created !!   **");
+        System.out.println("*****************************");
+        System.out.println("**    Account Created !!   **");
+        System.out.println("*****************************");
         System.out.println();
+        System.out.println("*****************************");
         System.out.println("**     Logging you in.     **");
+        System.out.println("*****************************");
         System.out.println();
         if (theatres.size() > 0) {
             System.out.println("What theatre do you work at?(please choose the number)");
@@ -244,9 +248,13 @@ public class TheatreDriver {
             System.out.println("Account in use.....");
             return;
         }
-        System.out.println("**   Account Created !!   **");
+        System.out.println("*****************************");
+        System.out.println("**    Account Created !!   **");
+        System.out.println("*****************************");
         System.out.println();
+        System.out.println("*****************************");
         System.out.println("**     Logging you in.     **");
+        System.out.println("*****************************");
         System.out.println();
         users.add(user);
         signedInUser = user;
@@ -538,7 +546,7 @@ public class TheatreDriver {
         keyboard.nextLine();
 
         selectSeats(t, t.getShows().get(showNum));
-
+        getSignedInUI();
     }
 
     public static void printShows(Theatre t) {
