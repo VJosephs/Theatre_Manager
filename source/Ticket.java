@@ -85,7 +85,7 @@ public class Ticket {
                 "Seat number: " + str;
 
         try {
-            FileWriter file = new FileWriter("Ticket_for_" + show.getName() + "_(" + str + ").txt");
+            FileWriter file = new FileWriter("tickets/Ticket_for_" + show.getName() + "_(" + str + ").txt");
             file.write(outString);
             file.flush();
             file.close();
