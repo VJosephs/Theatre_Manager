@@ -7,9 +7,9 @@ public class Show implements Comparable<Show> {
     private Date showTime;
     private double price;
     private String location;
-    private ArrayList<String> cast;
-    private ArrayList<Rating> ratings;
-    private ArrayList<Ticket> purchasedTickets;
+    private ArrayList<String> cast = new ArrayList<String>();
+    private ArrayList<Rating> ratings = new ArrayList<Rating>();
+    private ArrayList<Ticket> purchasedTickets = new ArrayList<Ticket>();
 
     /**
      * Creates a new show
@@ -88,10 +88,6 @@ public class Show implements Comparable<Show> {
         return purchasedTickets;
     }
 
-    public String toString() {
-        //TODO write toString
-        return null;
-    }
 
     @Override
     public int compareTo(Show o) {
@@ -112,6 +108,6 @@ public class Show implements Comparable<Show> {
     }
 
     public void recieveRating(Rating rating) {
-    	ratings.add(rating);
+    	this.ratings.add(rating);
     }
 }

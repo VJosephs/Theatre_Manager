@@ -15,7 +15,6 @@ public class TheatreDriver {
     public static Scanner keyboard = new Scanner(System.in);
     public static User signedInUser = new User();
     public static Employee signedInEmployee = new Employee();
-
     public static void main(String[] args) {
 
         System.out.println("******************************************************************");
@@ -42,7 +41,7 @@ public class TheatreDriver {
                     getRewardPoints();
                     break;
                 case 3:
-                    //TODO move this to the right place
+                    buyTicket();
                     break;
                 case 4:
                     ConcessionMenu();
@@ -62,7 +61,7 @@ public class TheatreDriver {
                     load();
                     break;
                 case 10:
-                	addRating(signedInUser);
+                	addRating();
             }
             System.out.println();
 
@@ -106,7 +105,7 @@ public class TheatreDriver {
         System.out.println("To get this menu again enter 0");
         System.out.println("To find a theatre enter 1");
         System.out.println("To view your rewards points enter 2");
-        System.out.println("To view your Tickets enter 3");
+        System.out.println("To buy tickets enter 3");
         System.out.println("To view concessions enter 4");
         System.out.println("For support enter 5");
         System.out.println("To sign out enter 6");
@@ -544,6 +543,7 @@ public class TheatreDriver {
             Ticket ticket = new Ticket(s.name, s.getLocation(), s.getPrice(), s);
             if (signedInUser != null) {
                 signedInUser.getCart().addTicket(ticket);
+                signedInUser.addToPastTransactions(ticket);
             }
             System.out.println("Which seats will you buy?");
             System.out.println("Seat format Column Letter row number 'A12'");
@@ -571,17 +571,30 @@ public class TheatreDriver {
         return s;
     }
     
-    public static void addRating(User user) {
+    public static void addRating() {
     	System.out.println("Which show that you have attened would you like to rate? (select number)");
-    	user.getPastTransactionsMenu();
+    	signedInUser.getPastTransactionsMenu();
     	int choice = keyboard.nextInt();
-    	Show show = user.getPastTransactions().get(choice).getShowObj();
-    	System.out.println("What would you rate the show out of 5?(You can use whole numbers or half numbers, i.e. 4.5)");
-    	double rating = keyboard.nextDouble();
-    	System.out.println("Leave a comment.(you can press enter to skip if you have no comment)");
-    	String comment = "";
-    	comment = keyboard.nextLine();
-    	Rating rate = new Rating(rating, comment, user.getUsername());
-    	show.recieveRating(rate);
+    	ArrayList<Ticket> transaction = new ArrayList<Ticket>(signedInUser.getPastTransactions());
+    	Ticket ticket = transaction.get(choice);
+    	for(Theatre theatre: theatres) {
+    		if(theatre.getName().equals(ticket.getLocation())) {
+    			ArrayList<Show> shows = theatre.getShows();
+    			for(Show show: shows) {
+    				if(show.getName().equals(ticket.getShow())) {
+    					System.out.println("Rate the show from 1 to 5.(You can have half numbers)");
+    					double rating = keyboard.nextDouble();
+    					keyboard.nextLine();
+    					String comment = "No Comment";
+    					System.out.println("Enter a comment or press enter to skip.");
+    					comment = keyboard.nextLine();
+    					Rating rate = new Rating(rating, theatre.getName(), comment);
+    					show.recieveRating(rate);
+    				}
+    				
+    			}
+    			break;
+    		}
+    	}
     }
 }

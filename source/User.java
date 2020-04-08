@@ -39,8 +39,8 @@ public class User {
      * @param price    Price of the ticket
      * @return n/a     its void
      */
-    public void purchaseTicket(String show, String location, double price) {
-        Ticket ticket = new Ticket(show, location, price);
+    public void purchaseTicket(String show, String location, double price, Show s) {
+        Ticket ticket = new Ticket(show, location, price, s);
         cart.addTicket(ticket);
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
     }
@@ -155,7 +155,7 @@ public class User {
     }
     public void getPastTransactionsMenu() {
         for(int i = 0; i < getPastTransactions().size()-1; i++) {
-        	System.out.println(i+". " + getPastTransactions().get(i));
+        	System.out.println(i+". " + getPastTransactions().get(i).getShow());
         }
     }
 
@@ -170,5 +170,7 @@ public class User {
     public String getBirthdayString() {
         return "" + birthday.getMonth() + "-" + birthday.getDate() + "-" + birthday.getYear();
     }
-     
+     public void addToPastTransactions(Ticket ticket) {
+    	 this.pastTransactions.add(ticket);
+     }
 }

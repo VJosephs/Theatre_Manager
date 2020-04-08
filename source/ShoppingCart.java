@@ -4,7 +4,7 @@ public class ShoppingCart {
     public ArrayList<Ticket> cart;
 
     /**
-     * @param cart used as a matri that hold all the tickets a user is considering buying
+     * @param cart used as a matrix that hold all the tickets a user is considering buying
      * @return n/a     its a constructor
      */
 
