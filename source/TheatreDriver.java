@@ -578,7 +578,7 @@ public class TheatreDriver {
     	ArrayList<Ticket> transaction = new ArrayList<Ticket>(signedInUser.getPastTransactions());
     	Ticket ticket = transaction.get(choice);
     	for(Theatre theatre: theatres) {
-    		if(theatre.getName().equals(ticket.getLocation())) {
+    		if(theatre.getAddress().equals(ticket.getLocation())) {
     			ArrayList<Show> shows = theatre.getShows();
     			for(Show show: shows) {
     				if(show.getName().equals(ticket.getShow())) {
