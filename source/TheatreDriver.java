@@ -106,7 +106,7 @@ public class TheatreDriver {
         System.out.println("*     To get this menu again enter 0    *");
         System.out.println("*         To buy tickets enter 1        *");
         System.out.println("*       To leave a review enter 2       *");
-        System.out.println("*         To buy tickets enter 3        *");
+        System.out.println("*  To view your rewards points enter 3  *");
         System.out.println("*      To view concessions enter 4      *");
         System.out.println("*          For support enter 5          *");
         System.out.println("*          To sign out enter 6          *");
