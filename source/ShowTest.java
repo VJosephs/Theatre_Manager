@@ -1,62 +1,74 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import org.junit.jupiter.api.Test;
 
 class ShowTest {
 
 	@Test
 	void testShow() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals(new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10), show);
 	}
 
 	@Test
 	void testGetName() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals("frozen", show.getName());
 	}
 
 	@Test
 	void testGetGenre() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals("horror", show.getGenre());
 	}
 
 	@Test
 	void testGetDescription() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals("show", show.getDescription());
 	}
 
 	@Test
 	void testGetShowRating() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals("R", show.getShowRating());
 	}
 
 	@Test
 	void testGetShowTime() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals( new Date(10,10,2000), show.getShowTime());
 	}
 
 	@Test
 	void testGetPrice() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals(10, show.getPrice());
 	}
 
 	@Test
 	void testGetAvgRating() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+		assertEquals(3.5, show.getAvgRating());
 	}
 
 	@Test
 	void testGetLocation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetCast() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals("123 theatre", show.getLocation());
 	}
 
 	@Test
 	void testGetRatings() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+		ArrayList<Rating> tester = new ArrayList<Rating>();
+		tester.add(new Rating(3.5, "Jsmith", "comment"));
+		assertEquals(tester, show.getRatings());
 	}
 
 	@Test
@@ -66,7 +78,9 @@ class ShowTest {
 
 	@Test
 	void testCompareTo() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		Show copy = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		assertEquals(copy, show);
 	}
 
 	@Test
@@ -81,7 +95,9 @@ class ShowTest {
 
 	@Test
 	void testRecieveRating() {
-		fail("Not yet implemented");
+		Show show = new Show("frozen", "show", "horror", "R", new Date(10,10,2000), "123 theatre", 10);
+		show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+		assertEquals(3.5, show.getAvgRating());
 	}
 
 }
