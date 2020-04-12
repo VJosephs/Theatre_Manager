@@ -4,44 +4,49 @@ import org.junit.jupiter.api.Test;
 
 class RatingTest {
 
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testRating() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals(new Rating(3.5, "John", "test"), rating);
 	}
 
 	@Test
 	void testSetComment() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		rating.setComment("pass");
+		assertEquals("pass", rating.getComment());
 	}
 
 	@Test
 	void testEqualsObject() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals(true, rating.equals(new Rating(3.5, "John", "test")));
 	}
 
 	@Test
 	void testGetUserName() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals("John", rating.getUserName());
 	}
 
 	@Test
 	void testGetComment() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals("test", rating.getComment());
 	}
 
 	@Test
 	void testGetRating() {
-		fail("Not yet implemented");
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals(3.5, rating.getRating());
 	}
 
 	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		String string = "John" + "gave this show a rating of:" + 3.5 + " and said, " + "test";
+		Rating rating = new Rating(3.5, "John", "test");
+		assertEquals(string, rating.toString());
 	}
 
 }
