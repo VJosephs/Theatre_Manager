@@ -40,7 +40,7 @@ public class User {
      * @return n/a     its void
      */
     public void purchaseTicket(String show, String location, double price, Show s) {
-        Ticket ticket = new Ticket(show, location, price, s);
+        Ticket ticket = new Ticket(show, location, price);
         cart.addTicket(ticket);
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
     }
