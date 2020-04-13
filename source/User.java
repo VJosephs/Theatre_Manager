@@ -52,7 +52,7 @@ public class User {
      */
     public Rating getRating(double rating, String comment) {
         // TODO fill out later
-    	return new Rating(rating, comment, this.username);
+    	return new Rating(rating, this.username, comment);
     }
     /** 
      * 

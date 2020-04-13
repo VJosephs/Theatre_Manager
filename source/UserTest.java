@@ -29,7 +29,9 @@ class UserTest {
 
 	@Test
 	void testGetRating() {
-		fail("Not yet implemented");
+		User user = new User("John", "Smith", "Jsmith", new Date(10,10,97), "password");
+		
+		assertEquals(new Rating(3.5, "Jsmith", "comment"),user.getRating(3.5, "comment"));
 	}
 
 	@Test
@@ -43,7 +45,7 @@ class UserTest {
 	@Test
 	void testToString() {
 		String user = new User("John", "Smith", "Jsmith", new Date(10,10,97), "password").toString();
-		assertEquals("User [firstName=John, lastName=Smith, username=Jsmith, birthday=10/10/97, password=password, Rewardspoints=0, pastTransactions=null]", user.toString());
+		assertEquals("User [firstName=John, lastName=Smith, username=Jsmith, birthday=10-10-97, password=password, Rewardspoints=0, pastTransactions=null]", user.toString());
 		
 	}
 
@@ -122,7 +124,7 @@ class UserTest {
 	@Test
 	void testGetBirthdayString() {
 		User user = new User("John", "Smith", "Jsmith", new Date(10,10,97), "password");
-		assertEquals("10/10/97", user.getBirthdayString());
+		assertEquals("10-10-97", user.getBirthdayString());
 	}
 
 	@Test
