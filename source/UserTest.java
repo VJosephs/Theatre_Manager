@@ -116,7 +116,13 @@ class UserTest {
 
     @Test
     void testGetPastTransactions() {
-        fail("Not yet implemented");
+    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+    	Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
+    	user.addToPastTransactions(ticket);
+    	ArrayList<Ticket> transactionTest = new ArrayList<Ticket>();
+    	transactionTest.add(ticket);
+    	assertEquals(user.getPastTransactions(), transactionTest);
     }
 
 
