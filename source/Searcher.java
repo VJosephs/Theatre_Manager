@@ -17,13 +17,17 @@ public class Searcher {
     }
 
     public ArrayList<Show> searchShowRatings() {
-        shows.sort(Show::compareTo);
-        return shows;
+        ArrayList<Show> retShows = new ArrayList<>(shows);
+        retShows.sort(Show::compareTo);
+        Collections.reverse(retShows);
+        return retShows;
     }
 
     public ArrayList<Theatre> searchTheatreRatings() {
-        theatres.sort(Theatre::compareTo);
-        return theatres;
+        ArrayList<Theatre> retTheatres = new ArrayList<>(theatres);
+        retTheatres.sort(Theatre::compareTo);
+        Collections.reverse(retTheatres);
+        return retTheatres;
     }
 
     public ArrayList<Show> searchGenre(String genre) {
