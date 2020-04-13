@@ -53,7 +53,11 @@ class ShoppingCartTest {
 	void testGetCart() {
 		ArrayList<Ticket> testList = new ArrayList<Ticket>();
 		ShoppingCart testCart = new ShoppingCart(testList);
-		assertEquals(testCart.getCart(), testList);
+		Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
+		testCart.addTicket(ticket);
+		boolean test = testCart.getCart().contains(ticket);
+		assertEquals(true, test);
 	}
 
 }
