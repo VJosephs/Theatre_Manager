@@ -16,7 +16,7 @@ class ShoppingCartTest {
 	void testShoppingCart() {
 		ArrayList<Ticket> testList = new ArrayList<Ticket>();
 		ShoppingCart testCart = new ShoppingCart(testList);
-		assertEquals(new ShoppingCart(testList), testList);
+		assertSame(new ShoppingCart(testList), testCart);
 	}
 
 	@Test
@@ -29,7 +29,7 @@ class ShoppingCartTest {
 		ArrayList<Ticket> testList2 = new ArrayList<Ticket>();
 		testList2.add(ticket);
 		ShoppingCart testCart2 = new ShoppingCart(testList2);
-		assertEquals(testCart, testCart2);
+		assertSame(testCart, testCart2);
 	}
 
 	@Test
@@ -40,7 +40,7 @@ class ShoppingCartTest {
 		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
 		testCart.addTicket(ticket);
 		testCart.removeTicket(ticket);
-		assertEquals(testCart, new ShoppingCart(testList));
+		assertSame(testCart, new ShoppingCart(testList));
 	}
 
 	@Test
