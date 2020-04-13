@@ -142,8 +142,7 @@ public class Show implements Comparable<Show> {
      * @return the dollar amount as a double of tickets sold
      */
     public double getTicketSale() {
-        int ticketSold = purchasedTickets.size() + 1;
-        return price * ticketSold;
+    	return price * purchasedTickets.size();
     }
     /**
      * 

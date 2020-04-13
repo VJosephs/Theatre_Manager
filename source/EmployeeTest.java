@@ -6,7 +6,7 @@ class EmployeeTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		
 	}
 
 }
