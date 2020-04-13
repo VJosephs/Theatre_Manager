@@ -137,8 +137,11 @@ class UserTest {
     void testGetCart() {
     	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
     	ArrayList<Ticket> testList = new ArrayList<Ticket>();
-		ShoppingCart testCart = new ShoppingCart(testList);
-		assertEquals(testCart, user.getCart());
+    	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
+    	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
+		boolean test = user.getCart().getCart().contains(ticket);
+		assertTrue(test);
     }
 
     @Test
