@@ -10,7 +10,6 @@ public class Searcher {
     /**
      * @param theatres all the theaters that host events
      * @param shows    all the shows that users can by tickets for
-     * @return n/a     its a constructor
      */
     public Searcher(ArrayList<Theatre> theatres, ArrayList<Show> shows) {
         setTheatres(theatres);
@@ -117,5 +116,13 @@ public class Searcher {
 
     public void setShows(ArrayList<Show> shows) {
         this.shows = Objects.requireNonNullElseGet(shows, ArrayList::new);
+    }
+
+    public ArrayList<Theatre> getTheatres() {
+        return theatres;
+    }
+
+    public ArrayList<Show> getShows() {
+        return shows;
     }
 }
