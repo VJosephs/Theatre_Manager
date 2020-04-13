@@ -40,7 +40,7 @@ class ShoppingCartTest {
 		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
 		testCart.addTicket(ticket);
 		testCart.removeTicket(ticket);
-		
+		assertEquals(testCart, new ShoppingCart(testList));
 	}
 
 	@Test
