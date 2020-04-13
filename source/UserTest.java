@@ -82,6 +82,7 @@ class UserTest {
     	ArrayList<Ticket> testList = new ArrayList<Ticket>();
 		ShoppingCart testCart = new ShoppingCart(testList);
     	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
+    	user.addToPastTransactions(new Ticket("Show", show.getLocation(), show.getPrice()));
 		user.refundTicket();
 		assertEquals(user.getCart(), testCart);
     }
@@ -91,6 +92,7 @@ class UserTest {
     	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
     	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
     	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
+    	user.addToPastTransactions(new Ticket("Show", show.getLocation(), show.getPrice()));
 		user.refundTicket();
 		assertEquals(user.getRewardPoints(), 1);
     }
@@ -133,16 +135,6 @@ class UserTest {
     	assertEquals(user.getCurrentTransactions(), transactionTest); //Nothing adds to Current transactions so testing against an empty arraylist
     }
 
-    @Test
-    void testGetCart() {
-    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
-    	ArrayList<Ticket> testList = new ArrayList<Ticket>();
-    	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
-		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
-    	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
-		boolean test = user.getCart().getCart().contains(ticket);
-		assertTrue(test);
-    }
 
     @Test
     void testGetBirthdayString() {
