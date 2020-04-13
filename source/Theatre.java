@@ -1,3 +1,5 @@
+
+
 import java.util.ArrayList;
 
 public class Theatre implements Comparable<Theatre> {
@@ -14,7 +16,8 @@ public class Theatre implements Comparable<Theatre> {
      * @param address address of the theater or its location
      * @param layout  layout of the seating at this specific theater
      * @param ratings ratings of events at the theater
-     * @param shows   what type of shows will be shwon at the theater
+     * @param shows   what type of shows will be shown at the theater
+     * @return n/a     its a constructor
      */
     public Theatre(String name, String address, Layout layout, ArrayList<Rating> ratings,
                    ArrayList<Show> shows) {

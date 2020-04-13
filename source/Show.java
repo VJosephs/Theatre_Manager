@@ -150,4 +150,8 @@ public class Show implements Comparable<Show> {
     public void recieveRating(Rating rating) {
     	this.ratings.add(rating);
     }
+    
+    public void addTicket(Ticket ticket) {
+    	this.purchasedTickets.add(ticket);
+    }
 }
