@@ -21,8 +21,6 @@ public class Show implements Comparable<Show> {
      * @param showTime    The time that the show is being played
      * @param location    The theater that the show is at.
      * @param price       The amount a ticket for the show costs
-     * @return n/a     its a constructor
-     * @throws n/a
      */
     public Show(String name, String description, String genre, String ageRating, Date showTime, String location, double price) {
         this.name = name;
@@ -119,7 +117,7 @@ public class Show implements Comparable<Show> {
     }
 
     /**
-     * @param Show to be compared
+     * @param o to be compared
      * @return boolean if the ratings of the are equal
      */
     @Override

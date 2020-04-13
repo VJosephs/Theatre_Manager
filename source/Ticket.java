@@ -26,10 +26,6 @@ public class Ticket {
         this.price = price;
         this.location = location;
     }
-    /**
-     * 
-     * @return the show object
-     */
 
     /**
      * Returns the show that the ticket is for
@@ -66,10 +62,10 @@ public class Ticket {
                 + ":: The show you have paid to see will be at " + getLocation() + ". And finally you paid" + getPrice() + "for your ticket! :: \n"
                 + " :: Thanks again for purchasing at THE_247_PROJECT. Have a nice day and call (***)-***-**** if you have any issues!";
     }
+
     /**
-     * 
      * @param show the show name
-     * @param str name of the file tickets are saved to 
+     * @param str  name of the file tickets are saved to
      */
     public void print(Show show, String str) {
         String outString = "*************************************************************************\n" +
@@ -79,7 +75,7 @@ public class Ticket {
                 "**                                                                     **\n" +
                 "*************************************************************************\n" +
                 "*************************************************************************\n" +
-                "          Ticket for one playing of: " + show.getName() + "\n" +
+                "          Ticket for one playing of: " + show.getName() + "\n\n" +
                 "On the date of: " + show.getShowTime().toString() + "\n" +
                 "Purchased for the amount $" + show.getPrice() + "\n" +
                 "Seat number: " + str;
