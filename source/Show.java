@@ -153,4 +153,20 @@ public class Show implements Comparable<Show> {
     public void addTicket(Ticket ticket) {
     	this.purchasedTickets.add(ticket);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCast(ArrayList<String> cast) {
+        this.cast = cast;
+    }
+
+    public void setPurchasedTickets(ArrayList<Ticket> purchasedTickets) {
+        this.purchasedTickets = purchasedTickets;
+    }
+
+    public void setRatings(ArrayList<Rating> ratings) {
+        this.ratings = ratings;
+    }
 }
