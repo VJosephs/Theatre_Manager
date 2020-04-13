@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -111,7 +112,10 @@ class UserTest {
 
     @Test
     void testGetCart() {
-        fail("Not yet implemented");
+    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	ArrayList<Ticket> testList = new ArrayList<Ticket>();
+		ShoppingCart testCart = new ShoppingCart(testList);
+		assertEquals(testCart, user.getCart());
     }
 
     @Test
