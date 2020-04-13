@@ -128,7 +128,9 @@ class UserTest {
 
     @Test
     void testGetCurrentTransactions() {
-        fail("Not yet implemented");
+    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	ArrayList<Ticket> transactionTest = new ArrayList<Ticket>();
+    	assertEquals(user.getCurrentTransactions(), transactionTest); //Nothing adds to Current transactions so testing against an empty arraylist
     }
 
     @Test
