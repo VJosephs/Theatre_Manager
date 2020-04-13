@@ -1,13 +1,15 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class SeatTest {
 
 	@Test
 	void testSeat() {
 		Seat seat = new Seat("taken");
-		assertEquals(new Seat("taken"), seat);
+		assertEquals('X', seat.getSeatChar());
+		assertEquals("taken", seat.getType());
+		assertFalse(seat.isValid());
 	}
 	
 	@Test
@@ -24,8 +26,8 @@ class SeatTest {
 	
 	@Test
 	void testIsValid() {
-		Seat seat = new Seat("taken");
-		assertEquals(true, seat.isValid());
+		Seat seat = new Seat("available");
+		assertTrue(seat.isValid());
 	}
 	
 	@Test
@@ -39,7 +41,7 @@ class SeatTest {
 	void testSetInvalid() {
 		Seat seat = new Seat("taken");
 		seat.setInValid();
-		assertEquals(false, seat.isValid());
+		assertFalse(seat.isValid());
 	}
 
 }
