@@ -1,137 +1,119 @@
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class LayoutTest {
 
-	@Test
-	void testLayoutStringSeatArrayArray() {
-		fail("Not yet implemented");
+    @BeforeEach
+    void oneTimeSetup() {
+
+    }
+
+    @Test
+    void testLayoutStringSeatArrayArray() {
+        Seat[][] seats = {{new Seat("handicap")}, {new Seat("available")}};
+        Layout layout = new Layout("name", seats);
+        assertEquals(seats, layout.seats);
+    }
+
+    @Test
+    void testLayoutString() {
+        Seat[][] seats = {{new Seat("handicap")}, {new Seat("available")}};
+        Layout layout = new Layout("name", seats);
+        assertEquals("name", layout.name);
+    }
+
+    @Test
+    void testPrintLayout() {
+        Seat[][] seats = {{new Seat("available")}, {new Seat("available")}};
+        Layout layout = new Layout("name", seats);
+        layout.printLayout();
+        assertFalse(System.out.checkError());
+    }
+
+    @Test
+    void testGetSeats() {
+        Seat[][] seats = {{new Seat("available")}, {new Seat("available")}};
+        Layout layout = new Layout("name", seats);
+
+        assertEquals(seats, layout.getSeats());
+    }
+
+    @Test
+    void testSetSeats() {
+        Seat[][] seats = {{new Seat("available")}, {new Seat("available")}};
+        Layout layout = new Layout("name");
+
+        layout.setSeats(seats);
+        assertEquals(seats, layout.getSeats());
+    }
+
+    @Test
+    void testGetCurrentSeatType() {
+        String seats = "handicap";
+		Layout layout = new Layout("name");
+
+		layout.setCurrentSeatType(seats);
+
+		assertEquals(seats, layout.getCurrentSeatType());
+    }
+
+    @Test
+    void testSetCurrentSeatType() {
+		String seats = "handicap";
+		Layout layout = new Layout("name");
+
+		layout.setCurrentSeatType(seats);
+
+		assertEquals(seats, layout.getCurrentSeatType());
+    }
+
+    @Test
+    void testGetHEIGHT() {
+		Layout layout = new Layout("name");
+		layout.setHEIGHT(10);
+
+		assertEquals(10, layout.getHEIGHT());
+    }
+
+    @Test
+    void testSetHEIGHT() {
+		Layout layout = new Layout("name");
+		layout.setHEIGHT(10);
+
+		assertEquals(10, layout.getHEIGHT());
+    }
+
+    @Test
+    void testGetWIDTH() {
+		Layout layout = new Layout("name");
+		layout.setWIDTH(10);
+
+		assertEquals(10, layout.getWIDTH());
+    }
+
+    @Test
+    void testSetWIDTH() {
+		Layout layout = new Layout("name");
+		layout.setWIDTH(10);
+
+		assertEquals(10, layout.getWIDTH());
+    }
+
+    @Test
+    void testGetName() {
+		Layout layout = new Layout("name");
+
+		assertEquals("name", layout.getName());
 	}
 
-	@Test
-	void testLayoutString() {
-		fail("Not yet implemented");
-	}
+    @Test
+    void testSetName() {
+		Layout layout = new Layout("name");
 
-	@Test
-	void testPrintLayout() {
-		fail("Not yet implemented");
+		layout.setName("notName");
+		assertEquals("notName", layout.name);
 	}
-
-	@Test
-	void testMakeLayout() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetSeats() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetSeats() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetCurrentSeatType() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetCurrentSeatType() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetHEIGHT() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetHEIGHT() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetWIDTH() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetWIDTH() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSetName() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testObject() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testGetClass() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testHashCode() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testEquals() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testClone() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testToString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotify() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testNotifyAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLong() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWaitLongInt() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testWait() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testFinalize() {
-		fail("Not yet implemented");
-	}
-
 }
