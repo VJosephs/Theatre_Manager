@@ -34,7 +34,13 @@ class ShoppingCartTest {
 
 	@Test
 	void testRemoveTicket() {
-		fail("Not yet implemented");
+		ArrayList<Ticket> testList = new ArrayList<Ticket>();
+		ShoppingCart testCart = new ShoppingCart(testList);
+		Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+		Ticket ticket = new Ticket("Show", show.getLocation(), show.getPrice());
+		testCart.addTicket(ticket);
+		testCart.removeTicket(ticket);
+		
 	}
 
 	@Test
