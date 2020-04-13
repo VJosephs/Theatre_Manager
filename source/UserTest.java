@@ -84,7 +84,7 @@ class UserTest {
     	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
     	user.addToPastTransactions(new Ticket("Show", show.getLocation(), show.getPrice()));
 		user.refundTicket();
-		assertEquals(user.getCart(), testCart);
+		assertEquals(user.getCart().getCart().get(0).getShow(), "Show");
     }
     
     @Test
