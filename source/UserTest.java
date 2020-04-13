@@ -77,7 +77,22 @@ class UserTest {
 
     @Test
     void testRefundTicket() {
-        fail("Not yet implemented");
+    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+    	ArrayList<Ticket> testList = new ArrayList<Ticket>();
+		ShoppingCart testCart = new ShoppingCart(testList);
+    	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
+		user.refundTicket();
+		assertEquals(user.getCart(), testCart);
+    }
+    
+    @Test
+    void testRefundTicketPoints() {
+    	User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	Show show = new Show("Show", "String description", "String genre", "String ageRating", new Date(10,Calendar.JANUARY, 1), "String location",1);
+    	user.purchaseTicket("Show", show.getLocation(), show.getPrice());
+		user.refundTicket();
+		assertEquals(user.getRewardPoints(), 1);
     }
 
     @Test
