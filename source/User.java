@@ -22,7 +22,6 @@ public class User {
      * @param username  made up name for the users account
      * @param birthday  actual birthday of the user to verify age restrictions
      * @param password  String to keep the account protected and private
-     * @return n/a      its a constructor
      */
     public User(String firstName, String lastName, String username, Date birthday, String password) {
         this.firstName = firstName;
@@ -37,9 +36,8 @@ public class User {
      * @param show     name of the show
      * @param location location of the theater that the show is at
      * @param price    Price of the ticket
-     * @return n/a     its void
      */
-    public void purchaseTicket(String show, String location, double price, Show s) {
+    public void purchaseTicket(String show, String location, double price) {
         Ticket ticket = new Ticket(show, location, price);
         cart.addTicket(ticket);
         //TODO implement reward points and child/senior ticket, maybe separate method for each type of ticket?
@@ -51,7 +49,6 @@ public class User {
      * @return user's rating
      */
     public Rating getRating(double rating, String comment) {
-        // TODO fill out later
     	return new Rating(rating, this.username, comment);
     }
     /** 
@@ -67,7 +64,7 @@ public class User {
     @Override
     public String toString() {
         return "User [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", birthday="
-                + birthday + ", password=" + password + ", RewardPoints="
+                + getBirthdayString() + ", password=" + password + ", RewardPoints="
                 + RewardPoints + ", pastTransactions=" + pastTransactions + "]";
     }
 
@@ -211,7 +208,7 @@ public class User {
      * @return the user's birthday as a String
      */
     public String getBirthdayString() {
-        return "" + birthday.getMonth() + "-" + birthday.getDate() + "-" + birthday.getYear();
+        return "" + (birthday.getMonth() + 1) + "-" + birthday.getDate() + "-" + birthday.getYear();
     }
     /**
      * 
