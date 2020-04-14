@@ -43,5 +43,18 @@ class SeatTest {
 		seat.setInValid();
 		assertFalse(seat.isValid());
 	}
-
+	
+	@Test
+	void testSetBlank() {
+		Seat seat = new Seat("taken");
+		seat.setType("blank");
+		assertEquals(' ', seat.getSeatChar());
+	}
+	
+	@Test
+	void testSetRandom() {
+		Seat seat = new Seat("taken");
+		seat.setType("dfhbgdolfiuhpio");
+		assertEquals('\u1234', seat.getSeatChar());
+	}
 }

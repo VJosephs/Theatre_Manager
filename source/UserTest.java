@@ -11,6 +11,18 @@ class UserTest {
     public static void setup() {
         User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
     }
+    
+    @Test
+    void testNullUser() {
+    	User user = new User();
+    	assertEquals(new User(), user);
+    }
+    
+    @Test
+    void getnoreward() {
+    	   User user = new User("John", "Smith", "Jsmith", new Date(97, Calendar.OCTOBER, 10), "password");
+    	   assertEquals(0, user.getRewardPoints());
+    }
 
     @Test
     void testUser() {

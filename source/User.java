@@ -136,13 +136,6 @@ public class User {
 
     /**
      * 
-     * @return the user's reward point balance
-     */
-    public int getRewardsPoints() {
-        return this.RewardPoints;
-    }
-    /**
-     * 
      * @param funds the amount to be added to reward points
      */
     public void addRewardPoints(int funds) {
