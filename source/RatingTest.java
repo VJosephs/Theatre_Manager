@@ -48,5 +48,17 @@ class RatingTest {
 		Rating rating = new Rating(3.5, "John", "test");
 		assertEquals(string, rating.toString());
 	}
+	
+	@Test
+	void testGetRatinglarger() {
+		Rating rating = new Rating(10, "John", "test");
+		assertEquals(5, rating.getRating());
+	}
+	
+	@Test
+	void testGetRatingSmall() {
+		Rating rating = new Rating(-3.5, "John", "test");
+		assertEquals(1, rating.getRating());
+	}
 
 }
