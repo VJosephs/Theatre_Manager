@@ -25,5 +25,33 @@ class PlayTest {
 		Play p =new Play("name", "desc", "genre", "18+", date, "location", 10);
 		assertEquals(18, p.getAgeRating());
 	}
+	
+	@Test
+	void testGetAgeRating16() {
+		Date date = new Date(10,10,2000);
+		Play p =new Play("name", "desc", "genre", "16+", date, "location", 10);
+		assertEquals(16, p.getAgeRating());
+	}
+	
+	@Test
+	void testGetAgeRating13() {
+		Date date = new Date(10,10,2000);
+		Play p =new Play("name", "desc", "genre", "13+", date, "location", 10);
+		assertEquals(13, p.getAgeRating());
+	}
+	
+	@Test
+	void testGetAgeRating10() {
+		Date date = new Date(10,10,2000);
+		Play p =new Play("name", "desc", "genre", "10+", date, "location", 10);
+		assertEquals(10, p.getAgeRating());
+	}
+	
+	@Test
+	void testGetAgeRating0() {
+		Date date = new Date(10,10,2000);
+		Play p =new Play("name", "desc", "genre", "0", date, "location", 10);
+		assertEquals(0, p.getAgeRating());
+	}
 
 }
