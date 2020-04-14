@@ -11,7 +11,6 @@ public class Layout {
     /**
      * @param name  Name of the seat that would appear on a ticket
      * @param seats index within the matrix for specific seat location
-     * @return n/a   its a constructor
      */
 
     public Layout(String name, Seat[][] seats) {
@@ -39,7 +38,6 @@ public class Layout {
 
     /**
      * @param input used for user to put in a specific
-     * @return n/a   its void
      */
     public void makeLayout(Scanner input) {
         int width;
@@ -84,7 +82,6 @@ public class Layout {
     /**
      * @param width  used for the horizontal rows in layout
      * @param height used for the vertical rows in layout
-     * @return n/a   its void
      */
     private void initSeats(int width, int height) {
         WIDTH = width;
@@ -112,7 +109,7 @@ public class Layout {
 
     /**
      * @param arr indexes that would appear on the ticket
-     * @return intp[]   tzhis will be the coordinates of the seat in layout
+     * @return int[]   this will be the coordinates of the seat in layout
      */
     private int[] getPoints(String[] arr) {
         int a = (arr[0].charAt(0)) - 65;
@@ -154,7 +151,6 @@ public class Layout {
 
     /**
      * @param arr certain indices for specific seats
-     * @return n/a   its void
      */
     private void setSeats(int[] arr) {
         int x = arr[0];

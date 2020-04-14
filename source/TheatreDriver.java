@@ -455,7 +455,7 @@ public class TheatreDriver {
     public static void getRewardPoints() {
 
         System.out.println("**************************************");
-        System.out.println("You have       " + signedInUser.getRewardsPoints() + " rewards points");
+        System.out.println("You have       " + signedInUser.getRewardPoints() + " rewards points");
         System.out.println("**************************************");
 
     }
