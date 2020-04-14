@@ -86,5 +86,11 @@ class EmployeeTest {
         employee.setTheatre(theatre);
         assertEquals(theatre, employee.getLocation());
     }
+    
+    @Test
+    void testNull() {
+    	Employee e =new Employee();
+    	assertEquals(new Employee(), e);
+    }
 
 }
