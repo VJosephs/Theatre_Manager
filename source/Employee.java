@@ -3,18 +3,18 @@ import java.util.Date;
 
 public class Employee extends User {
     private Theatre location;
-    
-    public Employee() {}
-    
+
+    public Employee() {
+    }
+
     /**
      * Creates a new show
      *
-     * @param firstName      actual first name of the user for account
-     * @param lastName       actual last name of the user for account
-     * @param username       made up name for the users account  
-     * @param birthday        actual birthday of the user to verify age restrictions
-     * @param password       String to keep the account protected and private
-     * @return n/a   its a constructor
+     * @param firstName actual first name of the user for account
+     * @param lastName  actual last name of the user for account
+     * @param username  made up name for the users account
+     * @param birthday  actual birthday of the user to verify age restrictions
+     * @param password  String to keep the account protected and private
      */
 
     public Employee(String firstName, String lastName, String username, Date birthday, String password) {
@@ -49,8 +49,8 @@ public class Employee extends User {
     public void setTheatre(Theatre location) {
         this.location = location;
     }
-    
+
     public Theatre getLocation() {
-    	return this.location;
+        return this.location;
     }
 }

@@ -129,9 +129,10 @@ public class Show implements Comparable<Show> {
      * @param rating to be removed
      */
     public void removeShowRating(Rating rating) {
-        for (Rating rating1 : ratings) {
-            if (rating1.equals(rating)) {
+        for (Rating r : ratings) {
+            if (r.equals(rating)) {
                 ratings.remove(rating);
+                return;
             }
         }
     }
@@ -146,7 +147,7 @@ public class Show implements Comparable<Show> {
      * 
      * @param rating to be added to the show
      */
-    public void recieveRating(Rating rating) {
+    public void receiveRating(Rating rating) {
     	this.ratings.add(rating);
     }
     

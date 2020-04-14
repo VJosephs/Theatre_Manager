@@ -67,7 +67,7 @@ class ShowTest {
     @Test
     void testGetAvgRating() {
         Show show = new Show("frozen", "show", "horror", "R", new Date(2000, Calendar.JANUARY, 10), "123 theatre", 10);
-        show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+        show.receiveRating(new Rating(3.5, "Jsmith", "comment"));
         assertEquals(3.5, show.getAvgRating());
     }
 
@@ -80,7 +80,7 @@ class ShowTest {
     @Test
     void testGetRatings() {
         Show show = new Show("frozen", "show", "horror", "R", new Date(2000, Calendar.JANUARY, 10), "123 theatre", 10);
-        show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+        show.receiveRating(new Rating(3.5, "Jsmith", "comment"));
         ArrayList<Rating> tester = new ArrayList<Rating>();
         tester.add(new Rating(3.5, "Jsmith", "comment"));
         assertEquals(tester, show.getRatings());
@@ -104,7 +104,7 @@ class ShowTest {
     @Test
     void testRecieveRating() {
         Show show = new Show("frozen", "show", "horror", "R", new Date(2000, Calendar.JANUARY, 10), "123 theatre", 10);
-        show.recieveRating(new Rating(3.5, "Jsmith", "comment"));
+        show.receiveRating(new Rating(3.5, "Jsmith", "comment"));
         assertEquals(3.5, show.getAvgRating());
     }
 

@@ -648,7 +648,7 @@ public class TheatreDriver {
     					System.out.println("Enter a comment or press enter to skip.");
     					comment = keyboard.nextLine();
     					Rating rate = new Rating(rating, theatre.getName(), comment);
-    					show.recieveRating(rate);
+    					show.receiveRating(rate);
     					System.out.println("comment added");
     				}
     				
